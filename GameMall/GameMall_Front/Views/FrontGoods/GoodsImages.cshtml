@@ -1,0 +1,19 @@
+﻿@*@model List<GameMall_Front.ViewModels.Goods.ViewModelGoodsPhotos>
+@{ 
+    Layout = null;
+}
+<!-轮播-->
+<div class="carousel">
+    <div class="slider">
+        <div class="slider-container">
+            <div class="slider-wrapper">
+                @foreach (var item in Model)
+                {
+                    <div class="slide">
+                        <img src="@item.GoodsPhoto" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>*@

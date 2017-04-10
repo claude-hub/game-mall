@@ -1,0 +1,34 @@
+﻿@*@model PagedList.PagedList<GameMall_Back.ViewModels.Admin.ViewModelAdminLog>*@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="content-header">
+    <h1>
+        管理员日志
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="tips">
+        <div class="tips-tit">
+            <img src="~/Images/Shared/灯.png" />
+            <span>操作提示</span>
+        </div>
+        <ul>
+            <li>该页面展示管理员的操作日志，可进行删除。</li>
+        </ul>
+    </div>
+    <div class="admin-list" id="adminLog">
+       @Html.Action("AdminLogList","Admin")
+    </div>
+</section>
+@section css{
+    @Styles.Render("~/Css/admin.css")
+    @Styles.Render("~/Css/page.css")
+}
+@section scripts{
+    @Scripts.Render("~/Js/adminlog.js")
+}

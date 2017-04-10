@@ -1,0 +1,18 @@
+﻿@model List<GameMall_Back.ViewModels.Goods.ViewModelWarehouse>
+@{
+    Layout = null;
+}
+<select class="select-Warehouse" disabled="disabled">
+    @foreach (var item in Model)
+    {
+        if (item.flag == 1)
+        {
+            <option selected="selected" value="@item.WarehouseId">@item.WarehouseName</option>
+        }
+        else
+        {
+            <option value="@item.WarehouseId">@item.WarehouseName</option>
+        }
+    }
+</select>
+

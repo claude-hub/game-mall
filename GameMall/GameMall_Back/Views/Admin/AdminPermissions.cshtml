@@ -1,0 +1,42 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section css{
+    @Styles.Render("~/Css/adminPerssions.css")
+}
+@section scripts{
+    @Scripts.Render("~/Js/jquery.ztree.core.js")
+    @Scripts.Render("~/Js/jquery.ztree.excheck.js")
+    @Scripts.Render("~/Js/admin_permission_ztree.js")
+}
+<section class="content-header">
+    <h1>
+        <a href="/Admin/AdminList"><img src="~/Images/Shared/return.png" /></a>
+        管理员列表
+        <small>分配权限</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="tips">
+        <div class="tips-tit">
+            <img src="~/Images/Shared/灯.png" />
+            <span>操作提示</span>
+        </div>
+        <ul>
+            <li>该页面展示商城所有功能权限。</li>
+            <li>打钩即是分配权限，请谨慎操作。</li>
+            <li>初始化是基本功能权限。</li>
+        </ul>
+    </div>
+    <input type="hidden" value="@Model" id="adminId" />
+    <div class="step">
+        <ul id="treeDemo" class="ztree"></ul>
+        <div class="select-all">
+            <button onclick="sure_permissions_jbt()">确认</button>
+        </div>
+    </div>
+</section>

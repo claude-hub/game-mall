@@ -1,0 +1,19 @@
+﻿@model GameMall_Front.ViewModels.Goods.ViewModelGoods
+@{
+    Layout = null;
+}
+<li>
+    <div class="lh_wrap">
+        <div class="p-img">
+            @Html.Action("VersionImage", "FrontGoods", Model)
+        </div>
+        <div class="p-name">
+            <div>@Model.GoodsName</div>
+            @Html.Action("MinPrice", "FrontGoods", new { Model.GoodsId })
+        </div>
+        <form action="/FrontGoods/GoodsDetail">
+            <input name="GoodsId" value="@Model.GoodsId" style="display:none"/>
+            <button>加入购物车</button>
+        </form>
+    </div>
+</li>

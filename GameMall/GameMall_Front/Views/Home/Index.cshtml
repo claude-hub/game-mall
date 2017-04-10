@@ -1,0 +1,65 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section css{
+    <!--首页-->
+    @Styles.Render("~/Css/HomeStyle.css")
+    <!--轮播-->
+    @Styles.Render("~/Css/carousel.css")
+}
+<!-轮播-->
+<div class="carousel">
+    @*<div class="slider">
+        <div class="slider-container">
+            <div class="slider-wrapper">
+                <div class="slide"> <img src="~/Images/Carousel/0.jpg" alt="jQuery Slider with CSS Transitions"> </div>
+                <div class="slide"> <img src="~/Images/Carousel/1.jpg" alt="jQuery Slider with CSS Transitions"> </div>
+                <div class="slide"> <img src="~/Images/Carousel/2.jpg" alt="jQuery Slider with CSS Transitions"> </div>
+                <div class="slide"> <img src="~/Images/Carousel/3.jpg" alt="jQuery Slider with CSS Transitions"> </div>
+            </div>
+        </div>
+    </div>*@
+
+
+    <div class="slider">
+        <div class="slider-container">
+            <div class="slider-wrapper">
+                <div class="slide">
+                    <img src="~/Images/Carousel/0.jpg" />
+                </div>
+                @*<div class="slide">
+                    <img src="~/Images/Carousel/1.jpg" />
+                </div>
+                <div class="slide">
+                    <img src="~/Images/Carousel/2.jpg" />
+                </div>
+                <div class="slide">
+                    <img src="~/Images/Carousel/3.jpg" />
+                </div>
+                <div class="slide">
+                    <img src="~/Images/Carousel/4.jpg" />
+                </div>
+                <div class="slide">
+                    <img src="~/Images/Carousel/5.jpg" />
+                </div>*@
+            </div>
+        </div>
+    </div>
+</div>
+<!-中间内容-->
+@Html.Action("HotGoods", "FrontGoods")
+@Html.Action("SingleGames", "FrontGoods")
+@Html.Action("NetworkGames", "FrontGoods")
+@Html.Action("MobileGames", "FrontGoods")
+@{
+    if (TempData["IfLogin"] != null)
+    {
+        <script>
+            var r=confirm("请登录!");
+            if (r==true)
+            {
+                window.location = "/FrontCustomer/Login";
+            }
+        </script>
+    }
+}

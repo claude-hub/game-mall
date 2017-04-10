@@ -1,0 +1,54 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="content-header">
+    <h1>
+        <a href="/Goods/GoodsList"><img src="~/Images/Shared/return.png" /></a>
+        <span>商品列表 - 添加商品</span>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="tips">
+        <div class="tips-tit">
+            <img src="~/Images/Shared/灯.png" />
+            <span>操作提示</span>
+        </div>
+        <ul>
+            <li>只有权限管理员才能创建仓库</li>
+            <li>标识“*”的选项为必填项，其余为选填项。</li>
+            <li>新增仓库后可从仓库列表中找到该条数据，并对其操作。</li>
+        </ul>
+    </div>
+    <div class="steps">
+        <div class="img">
+            <img src="~/Images/Shared/step-second.png" />
+        </div>
+        <span>填写商品信息</span>
+        <span>上传游戏截图</span>
+    </div>
+    <div class="message">
+        <input id="goodsId" value="@Model" type="hidden"/>
+        <form enctype="multipart/form-data" > 
+            <input id="file-zh" type="file" multiple>
+        </form>
+        <div class="operation">
+            <a href="/Goods/AddGoods1" class="pre-step">上一步，填写商品信息</a>
+            <a href="/Goods/GoodsList" class="next-step">完成，发布商品</a>
+        </div>
+    </div>
+</section>
+@section css{
+    @Styles.Render("~/Css/addGoods.css")
+}
+@section scripts{
+    @Scripts.Render("~/Js/fileinput.js")
+    @Scripts.Render("~/Js/zh.js")
+    @Scripts.Render("~/Js/uploadPicture.js")
+}
+
+
+

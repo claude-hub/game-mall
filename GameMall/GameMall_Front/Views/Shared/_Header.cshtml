@@ -1,0 +1,228 @@
+﻿<!--顶部导航栏-->
+<header class="header">
+    <div class="head">
+        <div class="head-top">
+            <div class="head-left">
+                @if (Session["CustomerId"] == null)
+                {
+                    <a href="/FrontCustomer/Login" class="login">亲,请登录</a>
+                    <a href="/FrontCustomer/Register" class="register">免费注册</a>
+                }else
+                {
+                    <span class="user_name">欢迎你：@((string)Session["UserName"])</span>
+                    <a href="/FrontCustomer/Logout">[注销]</a>
+                }
+
+            </div>
+            <div class="head-right">
+                <ul>
+                    <li>
+                        <div id="shop">
+                            <a class="word" href="#">
+                                <span>我的商城</span>
+                                <img class="down" src="~/Images/Home/下拉.png" />
+                            </a>
+                            <div class="hidden-block" id="hidden">
+                                <a href="/FrontCustomer/MyMall">我的订单</a>
+                                <a href="/FrontCustomer/MyMall">个人资料</a>
+                                <a href="/FrontCustomer/MyMall">安全设置</a>
+                                <a href="/FrontCustomer/MyMall">收货地址</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="/FrontCustomer/ShoppingCar">
+                            <img src="~/Images/Home/Shopping-car.png" />
+                            <span class="word">购物车</span>
+                            @*<span class="number">0</span>*@
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="~/Images/Home/Collection.png" />
+                            <span class="word">收藏夹</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">客服中心</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="head-search">
+        <div class="logo">
+            <img src="~/Images/logo.png" />
+            <div class="logo-word">游戏商城</div>
+        </div>
+
+        <div class="search-block">
+            <form action="/FrontGoods/SearchGoods">
+                <div class="search">
+                    <img class="search-logo" src="~/Images/Home/search-logo.png" />
+                    <input name="searchKey" value="@TempData["SearchKey"]" class="search-text" />
+                    <button class="search-word">搜索</button>
+                </div>
+            </form>
+            <div class="hot-search">
+                <span>热门搜索 :</span>
+                <a href="/FrontGoods/SearchGoods/?searchKey=侠客风云传">侠客风云传</a>
+                <a href="/FrontGoods/SearchGoods/?searchKey=天使帝国">天使帝国</a>
+            </div>
+        </div>
+    </div>
+    <div class="htmleaf-container">
+        <div class="head-wrap">
+            <div class="navwrap">
+                <div class="nav">
+                    <div class="navbar">
+                        <ul>
+                            <li class="home">
+                                <a href="/">首页</a>
+                            </li>
+                            <li>
+                                <a href="/FrontGoods/SearchByType?type=0">热门游戏</a>
+                            </li>
+                            <li>
+                                <a href="/FrontGoods/SearchByType?type=1">单机游戏</a>
+                            </li>
+                            <li>
+                                <a href="/FrontGoods/SearchByType?type=2">网游游戏</a>
+                            </li>
+                            <li>
+                                <a href="/FrontGoods/SearchByType?type=3">游戏周边</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pros subpage">
+                        <h2>全部游戏分类</h2>
+                        <ul class="prosul clearfix" id="proinfo">
+                            <li class="enjoy">
+                                <img src="~/Images/HomeImages/数码.png" />
+                                <span>单机游戏</span>
+                                <div class="prosmore hide">
+                                    <span><em class="morehot"><a class="morehot" href="/FrontGoods/SearchGoods/?searchKey=侠客风云传">侠客风云传</a></em></span>
+                                    <span><em class="morehot"><a class="morehot" href="/FrontGoods/SearchGoods/?searchKey=仙剑奇侠传6">仙剑奇侠传6</a></em></span>
+                                    <span><em><a href="/FrontGoods/SearchGoods/?searchKey=古墓丽影：崛起">古墓丽影：崛起</a></em></span>
+                                    <span><em><a href="/FrontGoods/SearchGoods/?searchKey=洛川群侠传">洛川群侠传</a></em></span>
+                                    <span><em><a href="/FrontGoods/SearchGoods/?searchKey=三国志13">三国志13</a></em></span>
+                                    <span><em><a href="/FrontGoods/SearchGoods/?searchKey=古剑奇谭">古剑奇谭</a></em></span>
+                                    <span><em><a href="/FrontGoods/SearchGoods/?searchKey=英雄无敌7">英雄无敌7</a></em></span>
+                                </div>
+                            </li>
+                            <li class="travel">
+                                <img src="~/Images/HomeImages/数码.png" />
+                                <span>网络游戏</span>
+                                <div class="prosmore hide">
+                                    <span><em class="morehot"><a class="morehot" href="/FrontGoods/SearchGoods/?searchKey=龙之谷">龙之谷</a></em></span>
+                                </div>
+                            </li>
+                            <li class="goods bd-solid">
+                                <img src="~/Images/HomeImages/游戏.png" />
+                                <span>游戏周边</span>
+                                <div class="prosmore hide">
+                                    <span><em><a href="/FrontGoods/SearchGoods/?searchKey=凰铃音">凰铃音 手办</a></em></span>
+                                    <span><em><a href="/FrontGoods/SearchGoods/?searchKey=毛瑟">毛瑟98K 手办</a></em></span>
+                                 </div>
+                            </li>
+                        </ul>
+                    </div>
+                    @*<div class="pros subpage">
+                        <h2>全部游戏分类</h2>
+                        <ul class="prosul clearfix" id="proinfo">
+                            <li class="enjoy">
+                                <img src="~/Images/HomeImages/数码.png" />
+                                <span>单机游戏</span>
+                                <div class="prosmore hide">
+                                    <span><em><a href="#">全部(663)</a></em></span>
+                                    <span><em class="morehot"><a class="morehot" href="/FrontGoods/SearchGoods/?searchKey=侠客风云传">侠客风云传</a></em></span>
+                                    <span><em class="morehot"><a class="morehot" href="#">KTV(8)</a></em></span>
+                                    <span><em><a href="#">运动健身(95)</a></em></span>
+                                    <span><em><a href="#">游乐电玩(48)</a></em></span>
+                                    <span><em><a href="#">展览演出(13)</a></em></span>
+                                    <span><em class="morehot"><a class="morehot" href="#">足疗按摩(8)</a></em></span>
+                                    <span><em><a href="#">洗浴(11)</a></em></span>
+                                    <span><em><a href="#">其他(29)</a></em></span>
+                                    <span><em><a href="#">采摘(2)</a></em></span>
+                                    <span><em><a href="#">滑雪(4)</a></em></span>
+                                    <span><em><a href="#">温泉(427)</a></em></span>
+                                </div>
+                            </li>
+                            <li class="travel">
+                                <img src="~/Images/HomeImages/数码.png" />
+                                <span>网络游戏</span>
+                                <div class="prosmore hide">
+                                    <span><em><a href="#">全部(13602)</a></em></span>
+                                    <span><em class="morehot"><a class="morehot" href="#">酒店(9044)</a></em></span>
+                                    <span><em><a href="#">旅游(1775)</a></em></span>
+                                    <span><em><a href="#">景点公园(935)</a></em></span>
+                                    <span><em><a href="#">其他(1848)</a></em></span>
+                                </div>
+                            </li>
+                            <li class="life">
+                                <img src="~/Images/HomeImages/数码.png" />
+                                <span>手机游戏</span>
+                                <div class="prosmore hide">
+                                    <span><em><a href="#">全部(333)</a></em></span>
+                                    <span><em><a href="#">写真(9)</a></em></span>
+                                    <span><em class="morehot"><a class="morehot" href="#">婚纱摄影(212)</a></em></span>
+                                    <span><em><a href="#">儿童摄影(1)</a></em></span>
+                                    <span><em><a href="#">汽车养护(3)</a></em></span>
+                                    <span><em><a href="#">教育培训(91)</a></em></span>
+                                    <span><em><a href="#">体检(8)</a></em></span>
+                                    <span><em><a href="#">口腔(1)</a></em></span>
+                                    <span><em><a href="#">其他(8)</a></em></span>
+                                </div>
+                            </li>
+                            <li class="women">
+                                <img src="~/Images/HomeImages/数码.png" />
+                                <span>数码产品</span>
+                                <div class="prosmore hide">
+                                    <span><em><a href="#">全部(14)</a></em></span>
+                                    <span><em class="morehot"><a class="morehot" href="#">美发(7)</a></em></span>
+                                    <span><em><a href="#">美甲(3)</a></em></span>
+                                    <span><em><a href="#">美容美体(4)</a></em></span>
+                                </div>
+                            </li>
+                            <li class="goods bd-solid">
+                                <img src="~/Images/HomeImages/游戏.png" />
+                                <span>游戏主机</span>
+                                <div class="prosmore hide">
+                                    <span><em><a href="#">全部(112343)</a> </em></span>
+                                    <span><em class="morehot"><a class="morehot" href="#">服装(32747)</a> </em></span>
+                                    <span><em><a href="#">生活家居(14441)</a> </em></span>
+                                    <span><em><a href="#">食品饮料(10116)</a> </em></span>
+                                    <span><em><a href="#">化妆品(12707)</a> </em></span>
+                                    <span><em><a href="#">箱包(7621)</a> </em></span>
+                                    <span><em><a href="#">家用电器(3775)</a> </em></span>
+                                    <span><em><a href="#">手机数码(3639)</a> </em></span>
+                                    <span><em><a href="#">鞋靴(11686)</a> </em></span>
+                                    <span><em><a href="#">饰品(4558)</a> </em></span>
+                                    <span><em><a href="#">手表(1482)</a> </em></span>
+                                    <span><em><a href="#">母婴用品(3659)</a> </em></span>
+                                    <span><em><a href="#">玩具(777)</a> </em></span>
+                                    <span><em><a href="#">抽奖(7)</a> </em></span>
+                                    <span><em><a href="#">礼品(197)</a> </em></span>
+                                    <span><em><a href="#">其他(4931)</a> </em></span>
+                                </div>
+                            </li>
+                            <li class="goods bd-solid">
+                                <img src="~/Images/HomeImages/游戏.png" />
+                                <span>游戏周边</span>
+                                <div class="prosmore hide">
+
+                                </div>
+                            </li>
+                            <li class="goods bd-solid">
+                                <img src="~/Images/HomeImages/游戏.png" />
+                                <span>游戏美图</span>
+                                <div class="prosmore hide">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

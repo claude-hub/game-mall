@@ -1,0 +1,1666 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GameMallModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="AdminId" />
+          </Key>
+          <Property Name="AdminId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AdminLog">
+          <Key>
+            <PropertyRef Name="AdminLogId" />
+          </Key>
+          <Property Name="AdminLogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdminId" Type="int" Nullable="false" />
+          <Property Name="OperatorTime" Type="datetime" Nullable="false" />
+          <Property Name="IP" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="OperationRecord" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AdminPermissions">
+          <Key>
+            <PropertyRef Name="PermissionId" />
+            <PropertyRef Name="AdminId" />
+          </Key>
+          <Property Name="PermissionId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AdminId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AdminRoles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+            <PropertyRef Name="AdminId" />
+          </Key>
+          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AdminId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DeliveryAddress">
+          <Key>
+            <PropertyRef Name="DeliveryAddressId" />
+          </Key>
+          <Property Name="DeliveryAddressId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="DeliveryName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Default" Type="int" />
+          <Property Name="Province" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Area" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Street" Type="nvarchar(max)" />
+          <Property Name="DetailAddress" Type="nvarchar(max)" />
+          <Property Name="TelNum" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Postcode" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Evaluation">
+          <Key>
+            <PropertyRef Name="EvaluationId" />
+          </Key>
+          <Property Name="EvaluationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="AdminId" Type="int" />
+          <Property Name="Evaluate" Type="nvarchar(max)" />
+          <Property Name="Reply" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Goods">
+          <Key>
+            <PropertyRef Name="GoodsId" />
+          </Key>
+          <Property Name="GoodsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GoodsName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Detail" Type="nvarchar(max)" />
+          <Property Name="Configuration" Type="nvarchar(max)" />
+          <Property Name="InstallWay" Type="nvarchar(max)" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="TotalSales" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="InvoiceId" />
+          </Key>
+          <Property Name="InvoiceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="AdminId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="MenuId" />
+          </Key>
+          <Property Name="MenuId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Icon" Type="image" />
+          <Property Name="Url" Type="nvarchar" MaxLength="50" />
+          <Property Name="Code" Type="varchar" MaxLength="500" />
+          <Property Name="ParentId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GoodsId" Type="int" Nullable="false" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="VersionId" Type="int" Nullable="false" />
+          <Property Name="WarehouseId" Type="int" Nullable="false" />
+          <Property Name="OrderGoodsNumber" Type="int" Nullable="false" />
+          <Property Name="Price" Type="real" Nullable="false" />
+          <Property Name="OrderStatus" Type="int" Nullable="false" />
+          <Property Name="OrderTime" Type="datetime" Nullable="false" />
+          <Property Name="Express" Type="nvarchar" MaxLength="20" />
+          <Property Name="SellerMessage" Type="nvarchar(max)" />
+          <Property Name="GoodsName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="VersionName" Type="nvarchar" MaxLength="20" />
+          <Property Name="DeliveryName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="TelNum" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Province" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Area" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Street" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DetailAddress" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Permissions">
+          <Key>
+            <PropertyRef Name="PermissionId" />
+          </Key>
+          <Property Name="PermissionId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="CreationTime" Type="datetime" Nullable="false" />
+          <Property Name="PermissionPId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RolePermissions">
+          <Key>
+            <PropertyRef Name="RoleId" />
+            <PropertyRef Name="PermissionId" />
+          </Key>
+          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PermissionId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="20" />
+          <Property Name="CreationTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Screenshot">
+          <Key>
+            <PropertyRef Name="ScreenshotId" />
+          </Key>
+          <Property Name="ScreenshotId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GoodsId" Type="int" Nullable="false" />
+          <Property Name="Screenshot" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ShoppingCars">
+          <Key>
+            <PropertyRef Name="ShoppingCarId" />
+          </Key>
+          <Property Name="ShoppingCarId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="GoodsId" Type="int" Nullable="false" />
+          <Property Name="VersionId" Type="int" Nullable="false" />
+          <Property Name="ShoppingCarGoodsNumber" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StockLog">
+          <Key>
+            <PropertyRef Name="StockLogId" />
+          </Key>
+          <Property Name="StockLogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdminId" Type="int" Nullable="false" />
+          <Property Name="WarehouseId" Type="int" Nullable="false" />
+          <Property Name="GoodsId" Type="int" Nullable="false" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="VersionId" Type="int" Nullable="false" />
+          <Property Name="OperationRecord" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="OperationTime" Type="datetime" Nullable="false" />
+          <Property Name="Stock" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="20" />
+          <Property Name="Password" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="CreationTime" Type="datetime" Nullable="false" />
+          <Property Name="Head" Type="nvarchar(max)" />
+          <Property Name="RealName" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Versions">
+          <Key>
+            <PropertyRef Name="VersionId" />
+          </Key>
+          <Property Name="VersionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GoodsId" Type="int" Nullable="false" />
+          <Property Name="WarehouseId" Type="int" Nullable="false" />
+          <Property Name="VersionName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ActivationTimes" Type="int" />
+          <Property Name="VersionImage" Type="nvarchar(max)" />
+          <Property Name="Price" Type="real" Nullable="false" />
+          <Property Name="Stock" Type="int" Nullable="false" />
+          <Property Name="Sell" Type="int" Nullable="false" />
+          <Property Name="SalesVolume" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Warehouse">
+          <Key>
+            <PropertyRef Name="WarehouseId" />
+          </Key>
+          <Property Name="WarehouseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WarehouseName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CreatTime" Type="datetime" Nullable="false" />
+          <Property Name="AdminId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ADMIN_REFERENCE_USERS">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Admin" Type="Self.Admin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Admin">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ADMINLOG_REFERENCE_ADMIN">
+          <End Role="Admin" Type="Self.Admin" Multiplicity="1" />
+          <End Role="AdminLog" Type="Self.AdminLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="AdminId" />
+            </Principal>
+            <Dependent Role="AdminLog">
+              <PropertyRef Name="AdminId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ADMINPER_REFERENCE_ADMIN">
+          <End Role="Admin" Type="Self.Admin" Multiplicity="1" />
+          <End Role="AdminPermissions" Type="Self.AdminPermissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="AdminId" />
+            </Principal>
+            <Dependent Role="AdminPermissions">
+              <PropertyRef Name="AdminId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ADMINPER_REFERENCE_PERMISSI">
+          <End Role="Permissions" Type="Self.Permissions" Multiplicity="1" />
+          <End Role="AdminPermissions" Type="Self.AdminPermissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permissions">
+              <PropertyRef Name="PermissionId" />
+            </Principal>
+            <Dependent Role="AdminPermissions">
+              <PropertyRef Name="PermissionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ADMINROL_REFERENCE_ADMIN">
+          <End Role="Admin" Type="Self.Admin" Multiplicity="1" />
+          <End Role="AdminRoles" Type="Self.AdminRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="AdminId" />
+            </Principal>
+            <Dependent Role="AdminRoles">
+              <PropertyRef Name="AdminId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ADMINROL_REFERENCE_ROLES">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="AdminRoles" Type="Self.AdminRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="AdminRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_REFERENCE_USERS">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DELIVERY_REFERENCE_CUSTOMER">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="DeliveryAddress" Type="Self.DeliveryAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="DeliveryAddress">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EVALUATI_REFERENCE_ADMIN">
+          <End Role="Admin" Type="Self.Admin" Multiplicity="0..1" />
+          <End Role="Evaluation" Type="Self.Evaluation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="AdminId" />
+            </Principal>
+            <Dependent Role="Evaluation">
+              <PropertyRef Name="AdminId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EVALUATI_REFERENCE_CUSTOMER">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="Evaluation" Type="Self.Evaluation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Evaluation">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EVALUATI_REFERENCE_ORDERS">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="Evaluation" Type="Self.Evaluation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="Evaluation">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INVOICE_REFERENCE_ADMIN">
+          <End Role="Admin" Type="Self.Admin" Multiplicity="1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="AdminId" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="AdminId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INVOICE_REFERENCE_ORDERS">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDERS_REFERENCE_CUSTOMER">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDERS_REFERENCE_GOODS">
+          <End Role="Goods" Type="Self.Goods" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goods">
+              <PropertyRef Name="GoodsId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="GoodsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDERS_REFERENCE_VERSIONS">
+          <End Role="Versions" Type="Self.Versions" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Versions">
+              <PropertyRef Name="VersionId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="VersionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDERS_REFERENCE_WAREHOUS">
+          <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Warehouse">
+              <PropertyRef Name="WarehouseId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="WarehouseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROLEPERM_REFERENCE_PERMISSI">
+          <End Role="Permissions" Type="Self.Permissions" Multiplicity="1" />
+          <End Role="RolePermissions" Type="Self.RolePermissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permissions">
+              <PropertyRef Name="PermissionId" />
+            </Principal>
+            <Dependent Role="RolePermissions">
+              <PropertyRef Name="PermissionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROLEPERM_REFERENCE_ROLES">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="RolePermissions" Type="Self.RolePermissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="RolePermissions">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SCREENSH_REFERENCE_GOODS">
+          <End Role="Goods" Type="Self.Goods" Multiplicity="1" />
+          <End Role="Screenshot" Type="Self.Screenshot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goods">
+              <PropertyRef Name="GoodsId" />
+            </Principal>
+            <Dependent Role="Screenshot">
+              <PropertyRef Name="GoodsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SHOPPING_REFERENCE_CUSTOMER">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="ShoppingCars" Type="Self.ShoppingCars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="ShoppingCars">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SHOPPING_REFERENCE_GOODS">
+          <End Role="Goods" Type="Self.Goods" Multiplicity="1" />
+          <End Role="ShoppingCars" Type="Self.ShoppingCars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goods">
+              <PropertyRef Name="GoodsId" />
+            </Principal>
+            <Dependent Role="ShoppingCars">
+              <PropertyRef Name="GoodsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SHOPPING_REFERENCE_VERSIONS">
+          <End Role="Versions" Type="Self.Versions" Multiplicity="1" />
+          <End Role="ShoppingCars" Type="Self.ShoppingCars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Versions">
+              <PropertyRef Name="VersionId" />
+            </Principal>
+            <Dependent Role="ShoppingCars">
+              <PropertyRef Name="VersionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STOCKLOG_REFERENCE_ADMIN">
+          <End Role="Admin" Type="Self.Admin" Multiplicity="1" />
+          <End Role="StockLog" Type="Self.StockLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="AdminId" />
+            </Principal>
+            <Dependent Role="StockLog">
+              <PropertyRef Name="AdminId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STOCKLOG_REFERENCE_GOODS">
+          <End Role="Goods" Type="Self.Goods" Multiplicity="1" />
+          <End Role="StockLog" Type="Self.StockLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goods">
+              <PropertyRef Name="GoodsId" />
+            </Principal>
+            <Dependent Role="StockLog">
+              <PropertyRef Name="GoodsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STOCKLOG_REFERENCE_ORDERS">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="StockLog" Type="Self.StockLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="StockLog">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STOCKLOG_REFERENCE_VERSIONS">
+          <End Role="Versions" Type="Self.Versions" Multiplicity="1" />
+          <End Role="StockLog" Type="Self.StockLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Versions">
+              <PropertyRef Name="VersionId" />
+            </Principal>
+            <Dependent Role="StockLog">
+              <PropertyRef Name="VersionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STOCKLOG_REFERENCE_WAREHOUS">
+          <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="1" />
+          <End Role="StockLog" Type="Self.StockLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Warehouse">
+              <PropertyRef Name="WarehouseId" />
+            </Principal>
+            <Dependent Role="StockLog">
+              <PropertyRef Name="WarehouseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VERSIONS_REFERENCE_GOODS">
+          <End Role="Goods" Type="Self.Goods" Multiplicity="1" />
+          <End Role="Versions" Type="Self.Versions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goods">
+              <PropertyRef Name="GoodsId" />
+            </Principal>
+            <Dependent Role="Versions">
+              <PropertyRef Name="GoodsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VERSIONS_REFERENCE_WAREHOUS">
+          <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="1" />
+          <End Role="Versions" Type="Self.Versions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Warehouse">
+              <PropertyRef Name="WarehouseId" />
+            </Principal>
+            <Dependent Role="Versions">
+              <PropertyRef Name="WarehouseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GameMallModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AdminLog" EntityType="Self.AdminLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AdminPermissions" EntityType="Self.AdminPermissions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AdminRoles" EntityType="Self.AdminRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeliveryAddress" EntityType="Self.DeliveryAddress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Evaluation" EntityType="Self.Evaluation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Goods" EntityType="Self.Goods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Invoice" EntityType="Self.Invoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Permissions" EntityType="Self.Permissions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RolePermissions" EntityType="Self.RolePermissions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Screenshot" EntityType="Self.Screenshot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShoppingCars" EntityType="Self.ShoppingCars" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StockLog" EntityType="Self.StockLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Versions" EntityType="Self.Versions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Warehouse" EntityType="Self.Warehouse" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ADMIN_REFERENCE_USERS" Association="Self.FK_ADMIN_REFERENCE_USERS">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Admin" EntitySet="Admin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ADMINLOG_REFERENCE_ADMIN" Association="Self.FK_ADMINLOG_REFERENCE_ADMIN">
+            <End Role="Admin" EntitySet="Admin" />
+            <End Role="AdminLog" EntitySet="AdminLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ADMINPER_REFERENCE_ADMIN" Association="Self.FK_ADMINPER_REFERENCE_ADMIN">
+            <End Role="Admin" EntitySet="Admin" />
+            <End Role="AdminPermissions" EntitySet="AdminPermissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ADMINPER_REFERENCE_PERMISSI" Association="Self.FK_ADMINPER_REFERENCE_PERMISSI">
+            <End Role="Permissions" EntitySet="Permissions" />
+            <End Role="AdminPermissions" EntitySet="AdminPermissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ADMINROL_REFERENCE_ADMIN" Association="Self.FK_ADMINROL_REFERENCE_ADMIN">
+            <End Role="Admin" EntitySet="Admin" />
+            <End Role="AdminRoles" EntitySet="AdminRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ADMINROL_REFERENCE_ROLES" Association="Self.FK_ADMINROL_REFERENCE_ROLES">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="AdminRoles" EntitySet="AdminRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_REFERENCE_USERS" Association="Self.FK_CUSTOMER_REFERENCE_USERS">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DELIVERY_REFERENCE_CUSTOMER" Association="Self.FK_DELIVERY_REFERENCE_CUSTOMER">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="DeliveryAddress" EntitySet="DeliveryAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EVALUATI_REFERENCE_ADMIN" Association="Self.FK_EVALUATI_REFERENCE_ADMIN">
+            <End Role="Admin" EntitySet="Admin" />
+            <End Role="Evaluation" EntitySet="Evaluation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EVALUATI_REFERENCE_CUSTOMER" Association="Self.FK_EVALUATI_REFERENCE_CUSTOMER">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Evaluation" EntitySet="Evaluation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EVALUATI_REFERENCE_ORDERS" Association="Self.FK_EVALUATI_REFERENCE_ORDERS">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Evaluation" EntitySet="Evaluation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INVOICE_REFERENCE_ADMIN" Association="Self.FK_INVOICE_REFERENCE_ADMIN">
+            <End Role="Admin" EntitySet="Admin" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INVOICE_REFERENCE_ORDERS" Association="Self.FK_INVOICE_REFERENCE_ORDERS">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDERS_REFERENCE_CUSTOMER" Association="Self.FK_ORDERS_REFERENCE_CUSTOMER">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDERS_REFERENCE_GOODS" Association="Self.FK_ORDERS_REFERENCE_GOODS">
+            <End Role="Goods" EntitySet="Goods" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDERS_REFERENCE_VERSIONS" Association="Self.FK_ORDERS_REFERENCE_VERSIONS">
+            <End Role="Versions" EntitySet="Versions" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDERS_REFERENCE_WAREHOUS" Association="Self.FK_ORDERS_REFERENCE_WAREHOUS">
+            <End Role="Warehouse" EntitySet="Warehouse" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROLEPERM_REFERENCE_PERMISSI" Association="Self.FK_ROLEPERM_REFERENCE_PERMISSI">
+            <End Role="Permissions" EntitySet="Permissions" />
+            <End Role="RolePermissions" EntitySet="RolePermissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROLEPERM_REFERENCE_ROLES" Association="Self.FK_ROLEPERM_REFERENCE_ROLES">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="RolePermissions" EntitySet="RolePermissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SCREENSH_REFERENCE_GOODS" Association="Self.FK_SCREENSH_REFERENCE_GOODS">
+            <End Role="Goods" EntitySet="Goods" />
+            <End Role="Screenshot" EntitySet="Screenshot" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SHOPPING_REFERENCE_CUSTOMER" Association="Self.FK_SHOPPING_REFERENCE_CUSTOMER">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="ShoppingCars" EntitySet="ShoppingCars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SHOPPING_REFERENCE_GOODS" Association="Self.FK_SHOPPING_REFERENCE_GOODS">
+            <End Role="Goods" EntitySet="Goods" />
+            <End Role="ShoppingCars" EntitySet="ShoppingCars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SHOPPING_REFERENCE_VERSIONS" Association="Self.FK_SHOPPING_REFERENCE_VERSIONS">
+            <End Role="Versions" EntitySet="Versions" />
+            <End Role="ShoppingCars" EntitySet="ShoppingCars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STOCKLOG_REFERENCE_ADMIN" Association="Self.FK_STOCKLOG_REFERENCE_ADMIN">
+            <End Role="Admin" EntitySet="Admin" />
+            <End Role="StockLog" EntitySet="StockLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STOCKLOG_REFERENCE_GOODS" Association="Self.FK_STOCKLOG_REFERENCE_GOODS">
+            <End Role="Goods" EntitySet="Goods" />
+            <End Role="StockLog" EntitySet="StockLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STOCKLOG_REFERENCE_ORDERS" Association="Self.FK_STOCKLOG_REFERENCE_ORDERS">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="StockLog" EntitySet="StockLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STOCKLOG_REFERENCE_VERSIONS" Association="Self.FK_STOCKLOG_REFERENCE_VERSIONS">
+            <End Role="Versions" EntitySet="Versions" />
+            <End Role="StockLog" EntitySet="StockLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STOCKLOG_REFERENCE_WAREHOUS" Association="Self.FK_STOCKLOG_REFERENCE_WAREHOUS">
+            <End Role="Warehouse" EntitySet="Warehouse" />
+            <End Role="StockLog" EntitySet="StockLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VERSIONS_REFERENCE_GOODS" Association="Self.FK_VERSIONS_REFERENCE_GOODS">
+            <End Role="Goods" EntitySet="Goods" />
+            <End Role="Versions" EntitySet="Versions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VERSIONS_REFERENCE_WAREHOUS" Association="Self.FK_VERSIONS_REFERENCE_WAREHOUS">
+            <End Role="Warehouse" EntitySet="Warehouse" />
+            <End Role="Versions" EntitySet="Versions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GameMallModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="AdminId" />
+          </Key>
+          <Property Name="AdminId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_ADMIN_REFERENCE_USERS" FromRole="Admin" ToRole="Users" />
+          <NavigationProperty Name="AdminLog" Relationship="Self.FK_ADMINLOG_REFERENCE_ADMIN" FromRole="Admin" ToRole="AdminLog" />
+          <NavigationProperty Name="Evaluation" Relationship="Self.FK_EVALUATI_REFERENCE_ADMIN" FromRole="Admin" ToRole="Evaluation" />
+          <NavigationProperty Name="Invoice" Relationship="Self.FK_INVOICE_REFERENCE_ADMIN" FromRole="Admin" ToRole="Invoice" />
+          <NavigationProperty Name="StockLog" Relationship="Self.FK_STOCKLOG_REFERENCE_ADMIN" FromRole="Admin" ToRole="StockLog" />
+          <NavigationProperty Name="Permissions" Relationship="Self.AdminPermissions" FromRole="Admin" ToRole="Permissions" />
+          <NavigationProperty Name="Roles" Relationship="Self.AdminRoles" FromRole="Admin" ToRole="Roles" />
+        </EntityType>
+        <EntityType Name="AdminLog">
+          <Key>
+            <PropertyRef Name="AdminLogId" />
+          </Key>
+          <Property Name="AdminLogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminId" Type="Int32" Nullable="false" />
+          <Property Name="OperatorTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OperationRecord" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Admin" Relationship="Self.FK_ADMINLOG_REFERENCE_ADMIN" FromRole="AdminLog" ToRole="Admin" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_CUSTOMER_REFERENCE_USERS" FromRole="Customers" ToRole="Users" />
+          <NavigationProperty Name="DeliveryAddress" Relationship="Self.FK_DELIVERY_REFERENCE_CUSTOMER" FromRole="Customers" ToRole="DeliveryAddress" />
+          <NavigationProperty Name="Evaluation" Relationship="Self.FK_EVALUATI_REFERENCE_CUSTOMER" FromRole="Customers" ToRole="Evaluation" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_ORDERS_REFERENCE_CUSTOMER" FromRole="Customers" ToRole="Orders" />
+          <NavigationProperty Name="ShoppingCars" Relationship="Self.FK_SHOPPING_REFERENCE_CUSTOMER" FromRole="Customers" ToRole="ShoppingCars" />
+        </EntityType>
+        <EntityType Name="DeliveryAddress">
+          <Key>
+            <PropertyRef Name="DeliveryAddressId" />
+          </Key>
+          <Property Name="DeliveryAddressId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="DeliveryName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Default" Type="Int32" />
+          <Property Name="Province" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Area" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Street" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DetailAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TelNum" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Postcode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK_DELIVERY_REFERENCE_CUSTOMER" FromRole="DeliveryAddress" ToRole="Customers" />
+        </EntityType>
+        <EntityType Name="Evaluation">
+          <Key>
+            <PropertyRef Name="EvaluationId" />
+          </Key>
+          <Property Name="EvaluationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="AdminId" Type="Int32" />
+          <Property Name="Evaluate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Reply" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Admin" Relationship="Self.FK_EVALUATI_REFERENCE_ADMIN" FromRole="Evaluation" ToRole="Admin" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK_EVALUATI_REFERENCE_CUSTOMER" FromRole="Evaluation" ToRole="Customers" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_EVALUATI_REFERENCE_ORDERS" FromRole="Evaluation" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Goods">
+          <Key>
+            <PropertyRef Name="GoodsId" />
+          </Key>
+          <Property Name="GoodsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GoodsName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Configuration" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InstallWay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="TotalSales" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_ORDERS_REFERENCE_GOODS" FromRole="Goods" ToRole="Orders" />
+          <NavigationProperty Name="Screenshot" Relationship="Self.FK_SCREENSH_REFERENCE_GOODS" FromRole="Goods" ToRole="Screenshot" />
+          <NavigationProperty Name="ShoppingCars" Relationship="Self.FK_SHOPPING_REFERENCE_GOODS" FromRole="Goods" ToRole="ShoppingCars" />
+          <NavigationProperty Name="StockLog" Relationship="Self.FK_STOCKLOG_REFERENCE_GOODS" FromRole="Goods" ToRole="StockLog" />
+          <NavigationProperty Name="Versions" Relationship="Self.FK_VERSIONS_REFERENCE_GOODS" FromRole="Goods" ToRole="Versions" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="InvoiceId" />
+          </Key>
+          <Property Name="InvoiceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="AdminId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Admin" Relationship="Self.FK_INVOICE_REFERENCE_ADMIN" FromRole="Invoice" ToRole="Admin" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_INVOICE_REFERENCE_ORDERS" FromRole="Invoice" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="MenuId" />
+          </Key>
+          <Property Name="MenuId" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Icon" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Url" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ParentId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GoodsId" Type="Int32" Nullable="false" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="VersionId" Type="Int32" Nullable="false" />
+          <Property Name="WarehouseId" Type="Int32" Nullable="false" />
+          <Property Name="OrderGoodsNumber" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Single" Nullable="false" />
+          <Property Name="OrderStatus" Type="Int32" Nullable="false" />
+          <Property Name="OrderTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Express" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SellerMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GoodsName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VersionName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DeliveryName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TelNum" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Province" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Area" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Street" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DetailAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK_ORDERS_REFERENCE_CUSTOMER" FromRole="Orders" ToRole="Customers" />
+          <NavigationProperty Name="Evaluation" Relationship="Self.FK_EVALUATI_REFERENCE_ORDERS" FromRole="Orders" ToRole="Evaluation" />
+          <NavigationProperty Name="Goods" Relationship="Self.FK_ORDERS_REFERENCE_GOODS" FromRole="Orders" ToRole="Goods" />
+          <NavigationProperty Name="Invoice" Relationship="Self.FK_INVOICE_REFERENCE_ORDERS" FromRole="Orders" ToRole="Invoice" />
+          <NavigationProperty Name="Versions" Relationship="Self.FK_ORDERS_REFERENCE_VERSIONS" FromRole="Orders" ToRole="Versions" />
+          <NavigationProperty Name="Warehouse" Relationship="Self.FK_ORDERS_REFERENCE_WAREHOUS" FromRole="Orders" ToRole="Warehouse" />
+          <NavigationProperty Name="StockLog" Relationship="Self.FK_STOCKLOG_REFERENCE_ORDERS" FromRole="Orders" ToRole="StockLog" />
+        </EntityType>
+        <EntityType Name="Permissions">
+          <Key>
+            <PropertyRef Name="PermissionId" />
+          </Key>
+          <Property Name="PermissionId" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PermissionPId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Admin" Relationship="Self.AdminPermissions" FromRole="Permissions" ToRole="Admin" />
+          <NavigationProperty Name="Roles" Relationship="Self.RolePermissions" FromRole="Permissions" ToRole="Roles" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Admin" Relationship="Self.AdminRoles" FromRole="Roles" ToRole="Admin" />
+          <NavigationProperty Name="Permissions" Relationship="Self.RolePermissions" FromRole="Roles" ToRole="Permissions" />
+        </EntityType>
+        <EntityType Name="Screenshot">
+          <Key>
+            <PropertyRef Name="ScreenshotId" />
+          </Key>
+          <Property Name="ScreenshotId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GoodsId" Type="Int32" Nullable="false" />
+          <Property Name="Screenshot1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Goods" Relationship="Self.FK_SCREENSH_REFERENCE_GOODS" FromRole="Screenshot" ToRole="Goods" />
+        </EntityType>
+        <EntityType Name="ShoppingCars">
+          <Key>
+            <PropertyRef Name="ShoppingCarId" />
+          </Key>
+          <Property Name="ShoppingCarId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="GoodsId" Type="Int32" Nullable="false" />
+          <Property Name="VersionId" Type="Int32" Nullable="false" />
+          <Property Name="ShoppingCarGoodsNumber" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK_SHOPPING_REFERENCE_CUSTOMER" FromRole="ShoppingCars" ToRole="Customers" />
+          <NavigationProperty Name="Goods" Relationship="Self.FK_SHOPPING_REFERENCE_GOODS" FromRole="ShoppingCars" ToRole="Goods" />
+          <NavigationProperty Name="Versions" Relationship="Self.FK_SHOPPING_REFERENCE_VERSIONS" FromRole="ShoppingCars" ToRole="Versions" />
+        </EntityType>
+        <EntityType Name="StockLog">
+          <Key>
+            <PropertyRef Name="StockLogId" />
+          </Key>
+          <Property Name="StockLogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminId" Type="Int32" Nullable="false" />
+          <Property Name="WarehouseId" Type="Int32" Nullable="false" />
+          <Property Name="GoodsId" Type="Int32" Nullable="false" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="VersionId" Type="Int32" Nullable="false" />
+          <Property Name="OperationRecord" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OperationTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Stock" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Admin" Relationship="Self.FK_STOCKLOG_REFERENCE_ADMIN" FromRole="StockLog" ToRole="Admin" />
+          <NavigationProperty Name="Goods" Relationship="Self.FK_STOCKLOG_REFERENCE_GOODS" FromRole="StockLog" ToRole="Goods" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_STOCKLOG_REFERENCE_ORDERS" FromRole="StockLog" ToRole="Orders" />
+          <NavigationProperty Name="Versions" Relationship="Self.FK_STOCKLOG_REFERENCE_VERSIONS" FromRole="StockLog" ToRole="Versions" />
+          <NavigationProperty Name="Warehouse" Relationship="Self.FK_STOCKLOG_REFERENCE_WAREHOUS" FromRole="StockLog" ToRole="Warehouse" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Head" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RealName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Admin" Relationship="Self.FK_ADMIN_REFERENCE_USERS" FromRole="Users" ToRole="Admin" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK_CUSTOMER_REFERENCE_USERS" FromRole="Users" ToRole="Customers" />
+        </EntityType>
+        <EntityType Name="Versions">
+          <Key>
+            <PropertyRef Name="VersionId" />
+          </Key>
+          <Property Name="VersionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GoodsId" Type="Int32" Nullable="false" />
+          <Property Name="WarehouseId" Type="Int32" Nullable="false" />
+          <Property Name="VersionName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ActivationTimes" Type="Int32" />
+          <Property Name="VersionImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Single" Nullable="false" />
+          <Property Name="Stock" Type="Int32" Nullable="false" />
+          <Property Name="Sell" Type="Int32" Nullable="false" />
+          <Property Name="SalesVolume" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Goods" Relationship="Self.FK_VERSIONS_REFERENCE_GOODS" FromRole="Versions" ToRole="Goods" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_ORDERS_REFERENCE_VERSIONS" FromRole="Versions" ToRole="Orders" />
+          <NavigationProperty Name="ShoppingCars" Relationship="Self.FK_SHOPPING_REFERENCE_VERSIONS" FromRole="Versions" ToRole="ShoppingCars" />
+          <NavigationProperty Name="StockLog" Relationship="Self.FK_STOCKLOG_REFERENCE_VERSIONS" FromRole="Versions" ToRole="StockLog" />
+          <NavigationProperty Name="Warehouse" Relationship="Self.FK_VERSIONS_REFERENCE_WAREHOUS" FromRole="Versions" ToRole="Warehouse" />
+        </EntityType>
+        <EntityType Name="Warehouse">
+          <Key>
+            <PropertyRef Name="WarehouseId" />
+          </Key>
+          <Property Name="WarehouseId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WarehouseName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AdminId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_ORDERS_REFERENCE_WAREHOUS" FromRole="Warehouse" ToRole="Orders" />
+          <NavigationProperty Name="StockLog" Relationship="Self.FK_STOCKLOG_REFERENCE_WAREHOUS" FromRole="Warehouse" ToRole="StockLog" />
+          <NavigationProperty Name="Versions" Relationship="Self.FK_VERSIONS_REFERENCE_WAREHOUS" FromRole="Warehouse" ToRole="Versions" />
+        </EntityType>
+        <Association Name="FK_ADMIN_REFERENCE_USERS">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Admin" Type="Self.Admin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Admin">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ADMINLOG_REFERENCE_ADMIN">
+          <End Role="Admin" Type="Self.Admin" Multiplicity="1" />
+          <End Role="AdminLog" Type="Self.AdminLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="AdminId" />
+            </Principal>
+            <Dependent Role="AdminLog">
+              <PropertyRef Name="AdminId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EVALUATI_REFERENCE_ADMIN">
+          <End Role="Admin" Type="Self.Admin" Multiplicity="0..1" />
+          <End Role="Evaluation" Type="Self.Evaluation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="AdminId" />
+            </Principal>
+            <Dependent Role="Evaluation">
+              <PropertyRef Name="AdminId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INVOICE_REFERENCE_ADMIN">
+          <End Role="Admin" Type="Self.Admin" Multiplicity="1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="AdminId" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="AdminId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STOCKLOG_REFERENCE_ADMIN">
+          <End Role="Admin" Type="Self.Admin" Multiplicity="1" />
+          <End Role="StockLog" Type="Self.StockLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="AdminId" />
+            </Principal>
+            <Dependent Role="StockLog">
+              <PropertyRef Name="AdminId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_REFERENCE_USERS">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DELIVERY_REFERENCE_CUSTOMER">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="DeliveryAddress" Type="Self.DeliveryAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="DeliveryAddress">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EVALUATI_REFERENCE_CUSTOMER">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="Evaluation" Type="Self.Evaluation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Evaluation">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDERS_REFERENCE_CUSTOMER">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SHOPPING_REFERENCE_CUSTOMER">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="ShoppingCars" Type="Self.ShoppingCars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="ShoppingCars">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EVALUATI_REFERENCE_ORDERS">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="Evaluation" Type="Self.Evaluation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="Evaluation">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDERS_REFERENCE_GOODS">
+          <End Role="Goods" Type="Self.Goods" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goods">
+              <PropertyRef Name="GoodsId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="GoodsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SCREENSH_REFERENCE_GOODS">
+          <End Role="Goods" Type="Self.Goods" Multiplicity="1" />
+          <End Role="Screenshot" Type="Self.Screenshot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goods">
+              <PropertyRef Name="GoodsId" />
+            </Principal>
+            <Dependent Role="Screenshot">
+              <PropertyRef Name="GoodsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SHOPPING_REFERENCE_GOODS">
+          <End Role="Goods" Type="Self.Goods" Multiplicity="1" />
+          <End Role="ShoppingCars" Type="Self.ShoppingCars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goods">
+              <PropertyRef Name="GoodsId" />
+            </Principal>
+            <Dependent Role="ShoppingCars">
+              <PropertyRef Name="GoodsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STOCKLOG_REFERENCE_GOODS">
+          <End Role="Goods" Type="Self.Goods" Multiplicity="1" />
+          <End Role="StockLog" Type="Self.StockLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goods">
+              <PropertyRef Name="GoodsId" />
+            </Principal>
+            <Dependent Role="StockLog">
+              <PropertyRef Name="GoodsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VERSIONS_REFERENCE_GOODS">
+          <End Role="Goods" Type="Self.Goods" Multiplicity="1" />
+          <End Role="Versions" Type="Self.Versions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goods">
+              <PropertyRef Name="GoodsId" />
+            </Principal>
+            <Dependent Role="Versions">
+              <PropertyRef Name="GoodsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INVOICE_REFERENCE_ORDERS">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDERS_REFERENCE_VERSIONS">
+          <End Role="Versions" Type="Self.Versions" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Versions">
+              <PropertyRef Name="VersionId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="VersionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDERS_REFERENCE_WAREHOUS">
+          <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Warehouse">
+              <PropertyRef Name="WarehouseId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="WarehouseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STOCKLOG_REFERENCE_ORDERS">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="StockLog" Type="Self.StockLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="StockLog">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SHOPPING_REFERENCE_VERSIONS">
+          <End Role="Versions" Type="Self.Versions" Multiplicity="1" />
+          <End Role="ShoppingCars" Type="Self.ShoppingCars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Versions">
+              <PropertyRef Name="VersionId" />
+            </Principal>
+            <Dependent Role="ShoppingCars">
+              <PropertyRef Name="VersionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STOCKLOG_REFERENCE_VERSIONS">
+          <End Role="Versions" Type="Self.Versions" Multiplicity="1" />
+          <End Role="StockLog" Type="Self.StockLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Versions">
+              <PropertyRef Name="VersionId" />
+            </Principal>
+            <Dependent Role="StockLog">
+              <PropertyRef Name="VersionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STOCKLOG_REFERENCE_WAREHOUS">
+          <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="1" />
+          <End Role="StockLog" Type="Self.StockLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Warehouse">
+              <PropertyRef Name="WarehouseId" />
+            </Principal>
+            <Dependent Role="StockLog">
+              <PropertyRef Name="WarehouseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VERSIONS_REFERENCE_WAREHOUS">
+          <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="1" />
+          <End Role="Versions" Type="Self.Versions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Warehouse">
+              <PropertyRef Name="WarehouseId" />
+            </Principal>
+            <Dependent Role="Versions">
+              <PropertyRef Name="WarehouseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AdminPermissions">
+          <End Role="Admin" Type="Self.Admin" Multiplicity="*" />
+          <End Role="Permissions" Type="Self.Permissions" Multiplicity="*" />
+        </Association>
+        <Association Name="AdminRoles">
+          <End Role="Admin" Type="Self.Admin" Multiplicity="*" />
+          <End Role="Roles" Type="Self.Roles" Multiplicity="*" />
+        </Association>
+        <Association Name="RolePermissions">
+          <End Role="Permissions" Type="Self.Permissions" Multiplicity="*" />
+          <End Role="Roles" Type="Self.Roles" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="GameMallDBContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admin" EntityType="Self.Admin" />
+          <EntitySet Name="AdminLog" EntityType="Self.AdminLog" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" />
+          <EntitySet Name="DeliveryAddress" EntityType="Self.DeliveryAddress" />
+          <EntitySet Name="Evaluation" EntityType="Self.Evaluation" />
+          <EntitySet Name="Goods" EntityType="Self.Goods" />
+          <EntitySet Name="Invoice" EntityType="Self.Invoice" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" />
+          <EntitySet Name="Permissions" EntityType="Self.Permissions" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" />
+          <EntitySet Name="Screenshot" EntityType="Self.Screenshot" />
+          <EntitySet Name="ShoppingCars" EntityType="Self.ShoppingCars" />
+          <EntitySet Name="StockLog" EntityType="Self.StockLog" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="Versions" EntityType="Self.Versions" />
+          <EntitySet Name="Warehouse" EntityType="Self.Warehouse" />
+          <AssociationSet Name="FK_ADMIN_REFERENCE_USERS" Association="Self.FK_ADMIN_REFERENCE_USERS">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Admin" EntitySet="Admin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ADMINLOG_REFERENCE_ADMIN" Association="Self.FK_ADMINLOG_REFERENCE_ADMIN">
+            <End Role="Admin" EntitySet="Admin" />
+            <End Role="AdminLog" EntitySet="AdminLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EVALUATI_REFERENCE_ADMIN" Association="Self.FK_EVALUATI_REFERENCE_ADMIN">
+            <End Role="Admin" EntitySet="Admin" />
+            <End Role="Evaluation" EntitySet="Evaluation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INVOICE_REFERENCE_ADMIN" Association="Self.FK_INVOICE_REFERENCE_ADMIN">
+            <End Role="Admin" EntitySet="Admin" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STOCKLOG_REFERENCE_ADMIN" Association="Self.FK_STOCKLOG_REFERENCE_ADMIN">
+            <End Role="Admin" EntitySet="Admin" />
+            <End Role="StockLog" EntitySet="StockLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_REFERENCE_USERS" Association="Self.FK_CUSTOMER_REFERENCE_USERS">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DELIVERY_REFERENCE_CUSTOMER" Association="Self.FK_DELIVERY_REFERENCE_CUSTOMER">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="DeliveryAddress" EntitySet="DeliveryAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EVALUATI_REFERENCE_CUSTOMER" Association="Self.FK_EVALUATI_REFERENCE_CUSTOMER">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Evaluation" EntitySet="Evaluation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDERS_REFERENCE_CUSTOMER" Association="Self.FK_ORDERS_REFERENCE_CUSTOMER">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SHOPPING_REFERENCE_CUSTOMER" Association="Self.FK_SHOPPING_REFERENCE_CUSTOMER">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="ShoppingCars" EntitySet="ShoppingCars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EVALUATI_REFERENCE_ORDERS" Association="Self.FK_EVALUATI_REFERENCE_ORDERS">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Evaluation" EntitySet="Evaluation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDERS_REFERENCE_GOODS" Association="Self.FK_ORDERS_REFERENCE_GOODS">
+            <End Role="Goods" EntitySet="Goods" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SCREENSH_REFERENCE_GOODS" Association="Self.FK_SCREENSH_REFERENCE_GOODS">
+            <End Role="Goods" EntitySet="Goods" />
+            <End Role="Screenshot" EntitySet="Screenshot" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SHOPPING_REFERENCE_GOODS" Association="Self.FK_SHOPPING_REFERENCE_GOODS">
+            <End Role="Goods" EntitySet="Goods" />
+            <End Role="ShoppingCars" EntitySet="ShoppingCars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STOCKLOG_REFERENCE_GOODS" Association="Self.FK_STOCKLOG_REFERENCE_GOODS">
+            <End Role="Goods" EntitySet="Goods" />
+            <End Role="StockLog" EntitySet="StockLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VERSIONS_REFERENCE_GOODS" Association="Self.FK_VERSIONS_REFERENCE_GOODS">
+            <End Role="Goods" EntitySet="Goods" />
+            <End Role="Versions" EntitySet="Versions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INVOICE_REFERENCE_ORDERS" Association="Self.FK_INVOICE_REFERENCE_ORDERS">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDERS_REFERENCE_VERSIONS" Association="Self.FK_ORDERS_REFERENCE_VERSIONS">
+            <End Role="Versions" EntitySet="Versions" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDERS_REFERENCE_WAREHOUS" Association="Self.FK_ORDERS_REFERENCE_WAREHOUS">
+            <End Role="Warehouse" EntitySet="Warehouse" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STOCKLOG_REFERENCE_ORDERS" Association="Self.FK_STOCKLOG_REFERENCE_ORDERS">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="StockLog" EntitySet="StockLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SHOPPING_REFERENCE_VERSIONS" Association="Self.FK_SHOPPING_REFERENCE_VERSIONS">
+            <End Role="Versions" EntitySet="Versions" />
+            <End Role="ShoppingCars" EntitySet="ShoppingCars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STOCKLOG_REFERENCE_VERSIONS" Association="Self.FK_STOCKLOG_REFERENCE_VERSIONS">
+            <End Role="Versions" EntitySet="Versions" />
+            <End Role="StockLog" EntitySet="StockLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STOCKLOG_REFERENCE_WAREHOUS" Association="Self.FK_STOCKLOG_REFERENCE_WAREHOUS">
+            <End Role="Warehouse" EntitySet="Warehouse" />
+            <End Role="StockLog" EntitySet="StockLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VERSIONS_REFERENCE_WAREHOUS" Association="Self.FK_VERSIONS_REFERENCE_WAREHOUS">
+            <End Role="Warehouse" EntitySet="Warehouse" />
+            <End Role="Versions" EntitySet="Versions" />
+          </AssociationSet>
+          <AssociationSet Name="AdminPermissions" Association="Self.AdminPermissions">
+            <End Role="Admin" EntitySet="Admin" />
+            <End Role="Permissions" EntitySet="Permissions" />
+          </AssociationSet>
+          <AssociationSet Name="AdminRoles" Association="Self.AdminRoles">
+            <End Role="Admin" EntitySet="Admin" />
+            <End Role="Roles" EntitySet="Roles" />
+          </AssociationSet>
+          <AssociationSet Name="RolePermissions" Association="Self.RolePermissions">
+            <End Role="Permissions" EntitySet="Permissions" />
+            <End Role="Roles" EntitySet="Roles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GameMallModelStoreContainer" CdmEntityContainer="GameMallDBContext">
+          <EntitySetMapping Name="Admin">
+            <EntityTypeMapping TypeName="GameMallModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdminLog">
+            <EntityTypeMapping TypeName="GameMallModel.AdminLog">
+              <MappingFragment StoreEntitySet="AdminLog">
+                <ScalarProperty Name="AdminLogId" ColumnName="AdminLogId" />
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+                <ScalarProperty Name="OperatorTime" ColumnName="OperatorTime" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="OperationRecord" ColumnName="OperationRecord" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="GameMallModel.Customers">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeliveryAddress">
+            <EntityTypeMapping TypeName="GameMallModel.DeliveryAddress">
+              <MappingFragment StoreEntitySet="DeliveryAddress">
+                <ScalarProperty Name="DeliveryAddressId" ColumnName="DeliveryAddressId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="DeliveryName" ColumnName="DeliveryName" />
+                <ScalarProperty Name="Default" ColumnName="Default" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="DetailAddress" ColumnName="DetailAddress" />
+                <ScalarProperty Name="TelNum" ColumnName="TelNum" />
+                <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Evaluation">
+            <EntityTypeMapping TypeName="GameMallModel.Evaluation">
+              <MappingFragment StoreEntitySet="Evaluation">
+                <ScalarProperty Name="EvaluationId" ColumnName="EvaluationId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+                <ScalarProperty Name="Evaluate" ColumnName="Evaluate" />
+                <ScalarProperty Name="Reply" ColumnName="Reply" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Goods">
+            <EntityTypeMapping TypeName="GameMallModel.Goods">
+              <MappingFragment StoreEntitySet="Goods">
+                <ScalarProperty Name="GoodsId" ColumnName="GoodsId" />
+                <ScalarProperty Name="GoodsName" ColumnName="GoodsName" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="Configuration" ColumnName="Configuration" />
+                <ScalarProperty Name="InstallWay" ColumnName="InstallWay" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="TotalSales" ColumnName="TotalSales" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invoice">
+            <EntityTypeMapping TypeName="GameMallModel.Invoice">
+              <MappingFragment StoreEntitySet="Invoice">
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menu">
+            <EntityTypeMapping TypeName="GameMallModel.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="GameMallModel.Orders">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="GoodsId" ColumnName="GoodsId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="VersionId" ColumnName="VersionId" />
+                <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+                <ScalarProperty Name="OrderGoodsNumber" ColumnName="OrderGoodsNumber" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+                <ScalarProperty Name="OrderTime" ColumnName="OrderTime" />
+                <ScalarProperty Name="Express" ColumnName="Express" />
+                <ScalarProperty Name="SellerMessage" ColumnName="SellerMessage" />
+                <ScalarProperty Name="GoodsName" ColumnName="GoodsName" />
+                <ScalarProperty Name="VersionName" ColumnName="VersionName" />
+                <ScalarProperty Name="DeliveryName" ColumnName="DeliveryName" />
+                <ScalarProperty Name="TelNum" ColumnName="TelNum" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="DetailAddress" ColumnName="DetailAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Permissions">
+            <EntityTypeMapping TypeName="GameMallModel.Permissions">
+              <MappingFragment StoreEntitySet="Permissions">
+                <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+                <ScalarProperty Name="PermissionPId" ColumnName="PermissionPId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="GameMallModel.Roles">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Screenshot">
+            <EntityTypeMapping TypeName="GameMallModel.Screenshot">
+              <MappingFragment StoreEntitySet="Screenshot">
+                <ScalarProperty Name="ScreenshotId" ColumnName="ScreenshotId" />
+                <ScalarProperty Name="GoodsId" ColumnName="GoodsId" />
+                <ScalarProperty Name="Screenshot1" ColumnName="Screenshot" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShoppingCars">
+            <EntityTypeMapping TypeName="GameMallModel.ShoppingCars">
+              <MappingFragment StoreEntitySet="ShoppingCars">
+                <ScalarProperty Name="ShoppingCarId" ColumnName="ShoppingCarId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="GoodsId" ColumnName="GoodsId" />
+                <ScalarProperty Name="VersionId" ColumnName="VersionId" />
+                <ScalarProperty Name="ShoppingCarGoodsNumber" ColumnName="ShoppingCarGoodsNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StockLog">
+            <EntityTypeMapping TypeName="GameMallModel.StockLog">
+              <MappingFragment StoreEntitySet="StockLog">
+                <ScalarProperty Name="StockLogId" ColumnName="StockLogId" />
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+                <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+                <ScalarProperty Name="GoodsId" ColumnName="GoodsId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="VersionId" ColumnName="VersionId" />
+                <ScalarProperty Name="OperationRecord" ColumnName="OperationRecord" />
+                <ScalarProperty Name="OperationTime" ColumnName="OperationTime" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="GameMallModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+                <ScalarProperty Name="Head" ColumnName="Head" />
+                <ScalarProperty Name="RealName" ColumnName="RealName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Versions">
+            <EntityTypeMapping TypeName="GameMallModel.Versions">
+              <MappingFragment StoreEntitySet="Versions">
+                <ScalarProperty Name="VersionId" ColumnName="VersionId" />
+                <ScalarProperty Name="GoodsId" ColumnName="GoodsId" />
+                <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+                <ScalarProperty Name="VersionName" ColumnName="VersionName" />
+                <ScalarProperty Name="ActivationTimes" ColumnName="ActivationTimes" />
+                <ScalarProperty Name="VersionImage" ColumnName="VersionImage" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="Sell" ColumnName="Sell" />
+                <ScalarProperty Name="SalesVolume" ColumnName="SalesVolume" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Warehouse">
+            <EntityTypeMapping TypeName="GameMallModel.Warehouse">
+              <MappingFragment StoreEntitySet="Warehouse">
+                <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+                <ScalarProperty Name="WarehouseName" ColumnName="WarehouseName" />
+                <ScalarProperty Name="CreatTime" ColumnName="CreatTime" />
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AdminPermissions" TypeName="GameMallModel.AdminPermissions" StoreEntitySet="AdminPermissions">
+            <EndProperty Name="Admin">
+              <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+            </EndProperty>
+            <EndProperty Name="Permissions">
+              <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="AdminRoles" TypeName="GameMallModel.AdminRoles" StoreEntitySet="AdminRoles">
+            <EndProperty Name="Admin">
+              <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+            </EndProperty>
+            <EndProperty Name="Roles">
+              <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="RolePermissions" TypeName="GameMallModel.RolePermissions" StoreEntitySet="RolePermissions">
+            <EndProperty Name="Permissions">
+              <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+            </EndProperty>
+            <EndProperty Name="Roles">
+              <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

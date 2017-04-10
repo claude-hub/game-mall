@@ -1,0 +1,68 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="content-header">
+    <h1>
+        订单
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="tips">
+        <div class="tips-tit">
+            <img src="~/Images/Shared/灯.png" />
+            <span>操作提示</span>
+        </div>
+        <ul>
+            <li>可从管理平台手动添加一名新管理员，并填写相关信息。</li>
+            <li>标识“*”的选项为必填项，其余为选填项。</li>
+            <li>新增管理员后可从管理员列表中找到该条数据，并再次进行编辑操作。</li>
+        </ul>
+    </div>
+
+    <div class="orders">
+        <ul id="order_title">
+            <li>
+                <a id="0" class="actived">全部订单</a>
+            </li>
+            <li>
+                <a id="1">待确认</a>
+            </li>
+            <li>
+                <a id="2">待发货</a>
+            </li>
+            <li>
+                <a id="3">已发货</a>
+            </li>
+            <li>
+                <a id="4">已收货</a>
+            </li>
+            <li>
+                <a id="5">已完成</a>
+            </li>
+            <li>
+                <a id="6">缺货登记</a>
+            </li>
+            <li>
+                <a id="7">退换货/退款</a>
+            </li>
+            <li class="search-block">
+                <input placeholder="订单编号/商品信息" id="searchKey"/>
+                <input type="button" class="search" id="search"/>
+            </li>
+        </ul>
+        <div id="order_list" class="tab-content">
+            @Html.Action("SelectOrders","Order",new { orderStatu = 0,searchKey = "", page = 1})
+        </div>
+    </div>
+</section>
+@section css{
+    @Styles.Render("~/Css/order.css")
+    @Styles.Render("~/Css/page.css")
+}
+@section scripts{
+    @Scripts.Render("~/Js/order.js")
+}

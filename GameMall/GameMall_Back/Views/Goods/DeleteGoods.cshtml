@@ -1,0 +1,22 @@
+﻿@model GameMall_Back.ViewModels.Goods.ViewModelGoods
+@{ 
+    Layout = null;
+}
+<div class="sweet-alert" id="tip_delete">
+    <div class="background"></div>
+    <div class="tip-delect">
+        <div class="icon warning pulseWarning">
+            <span class="body pulseWarningIns"></span>
+            <span class="dot pulseWarningIns"></span>
+        </div>
+        <h2>确定操作？</h2>
+        <p>是否删除该版本?</p>
+        <div>
+            <form action="/Goods/DeleteGoods" method="post">
+                <input name="GoodsId" value="@Model.GoodsId" type="hidden" />
+                <button>确认</button>
+            </form>
+            <button type="button" id="cancel" class="cancel" onclick="$('#tip_delect_goods').empty();">取消</button>
+        </div>
+    </div>
+</div>

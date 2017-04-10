@@ -1,0 +1,22 @@
+﻿@model List<GameMall_Back.ViewModels.ViewModelMenu>
+
+@foreach (var item in Model)
+{
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-share"></i> <span>@item.Name</span>
+            @if (item.ChildMenu.Count > 0)
+            {
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            }
+        </a>
+        @if (item.ChildMenu.Count > 0)
+        {
+            <ul class="treeview-menu">
+                @Html.Partial("ChildMenu", item)
+            </ul>
+        }
+    </li>
+}

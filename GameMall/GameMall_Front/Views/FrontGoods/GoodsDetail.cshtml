@@ -1,0 +1,138 @@
+﻿@model GameMall_Front.ViewModels.Goods.ViewModelGoods
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!--商品详情-->
+@section css{
+    @Styles.Render("~/Css/goodsDetail.css")
+}
+@{
+    if (TempData["IfLogin"] != null)
+    {
+        <script>
+            var r=confirm("请登录!");
+            if (r==true)
+            {
+                window.location = "/FrontCustomer/Login";
+            }
+        </script>
+    }
+}
+<script src="~/Js/jquery-1.9.1.js"></script>
+<script src="~/Js/goods_detail.js"></script>
+<div class="center-block">
+    <div class="goods-detail">
+        <div class="position">
+            我的位置>所有游戏>商品详情
+        </div>
+        <div class="goods-content-buy">
+            <div class="left">
+                <div class="goodsImage">
+                    @Html.Action("VersionImage", "FrontGoods", Model)
+                </div>
+            </div>
+            <div class="right">
+                <div class="goods-name">@Model.GoodsName</div>
+                <div class="use-times">
+                    激活方式：1：登录激活，2：免登陆激活。
+                    （一个激活码，激活方式支持且仅支持一种，即2选1），
+                    上市后标准版、豪华版均不再配送预售特典。
+                </div>
+                <div class="price-block">
+                    <div class="tit">价格：</div>
+                    <div class="p-icon">￥</div>
+                    <div class="price">123</div>
+                </div>
+                <div class="payment">
+                    <div class="word">支付方式：</div>
+                    <img src="~/Images/支付宝.png" />
+                    <div class="word">支付宝扫码支付</div>
+                </div>
+                <div class="mes">
+                    <div class="all">
+                        <div class="word">总销售量</div>
+                        <div class="num month">@Model.TotalSales</div>
+                    </div>
+                    <div class="all">
+                        <div class="word">累计评价</div>
+                        <div class="num">2123</div>
+                    </div>
+                </div>
+                <div class="versions">
+                    <div class="word">游戏版本：</div>
+                    <ul>
+                        @Html.Action("Versions","FrontGoods",new { Model.GoodsId })
+                    </ul>
+                </div>
+                <div class="number-block">
+                    <div class="word">数量：</div>
+                    <button type="button" id="reduce">-</button>
+                    <input id="number" value="1" />
+                    <button type="button" id="plus">+</button>
+                    @*<div class="collection">
+                        <a>
+                            <img src="~/Images/五角星.png" />
+                            <div class="word">收藏游戏</div>
+                        </a>
+                    </div>*@
+                </div>
+                <input id="goodsId" name="goodsId" value="@Model.GoodsId" type="hidden"/>
+                <div id="btn">
+
+                </div>
+                @*@Html.Action("CheckIfSell","FrontGoods")*@
+                @*<div class="buy btns">
+                    <form action="/FrontOrder/PlaceOrder">
+                        <input id="goodsId" name="goodsId" value="@Model.GoodsId"/>
+                        <input id="GoodsNumber" name="orderGoodsNumber" value="1"/>
+                        <input id="versionId" name="VersionId"/>
+                        <button class="buy-now">直接购买</button>
+                    </form>
+                    <input id="customerId" value="@Session["CustomerId"]" type="hidden"/>
+                    <button id="AddToShoppingCar" class="addCart btnCart">加入购物车</button>
+                </div>
+                <div id="flyItem" class="fly_item">
+                    <img src="~/Images/item-pic.jpg" width="50" height="50" />
+                </div>*@
+            </div>
+        </div>
+        <div class="goods-content-detail">
+            <div class="nav">
+                <ul>
+                    <li>
+                        <a id="qh1">商品详情</a>
+                    </li>
+                    <li>
+                        <a id="qh2">别人评论</a>
+                    </li>
+                    <li>
+                        <a id="qh3">配置要求</a>
+                    </li>
+                    <li>
+                        <a id="qh4">安装激活</a>
+                    </li>
+                    <li>
+                        <a id="qh5">购物指南</a>
+                    </li>
+                    <li>
+                        <a id="qh6">遇到问题</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="hidden1" class="hidden">
+                <div>游戏介绍:@Model.Configuration</div>
+                <div>游戏截图:</div>
+                <div class="screenshot">@Html.Action("GoodsScreenshot","FrontGoods",new { Model.GoodsId})</div>
+            </div>
+            <div id="hidden2" class="hidden">
+                <div>
+                    @Html.Action("EvaluationList", "FrontGoods", new { Model.GoodsId })
+                </div>
+            </div>
+            <div id="hidden3" class="hidden"></div>
+            <div id="hidden4" class="hidden"></div>
+            <div id="hidden5" class="hidden"></div>
+            <div id="hidden6" class="hidden"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+﻿@model List<GameMall_Front.ViewModels.Order.ViewModelOrder>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section css{
+    @Styles.Render("~/Css/pay.css")
+}
+<div class="pay">
+    <div>
+        <img src="~/Images/weixin_code_145.png" />
+    </div>
+    <div>
+        <form action="/FrontOrder/PayAll" method="post">
+            @foreach (var item in Model)
+            {
+                <input name="OrderId" value="@item.OrderId" />
+            }
+            <button>确认支付</button>
+        </form>
+        <form>
+            <button>取消订单</button>
+        </form>
+    </div>
+</div>
+

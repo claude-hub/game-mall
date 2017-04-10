@@ -1,0 +1,55 @@
+﻿.container{
+    margin:auto;
+    width:1210px;
+}
+.container .position{
+    line-height:36px;
+}
+.shopping_car table {
+    /*min-width: 1090px;*/
+    border-top: 2px solid #dbdbdb;
+    border-bottom: 2px solid #dbdbdb;
+}
+.shopping_car table thead{
+    border-top: 2px solid #dbdbdb;
+    border-bottom: 1px solid #eaeaea;
+}
+.shopping_car th {
+    text-align: center;
+    width: 166px;
+    height: 38px;
+    line-height: 38px;
+    background: #f2f2f2;
+    font-weight: bold;
+    color: #333;
+}
+
+.shopping_car tbody {
+    background: #FFF;
+}
+
+.shopping_car .operation {
+    width: 289px;
+    text-align: center;
+}
+
+.shopping_car td {
+    padding: 4px 0;
+    text-align: center;
+    /*width: 160px;*/
+    border-bottom: 1px solid #eaeaea;
+}
+.shopping_car td img{
+    width:90px;
+}
+.shopping_car tfoot{
+    line-height: 38px;
+    background: #f2f2f2;
+}
+.shopping_car input{
+    width:20px;
+}
+.shopping_car form{
+    display:inline-block;
+    margin-left:30px;
+}

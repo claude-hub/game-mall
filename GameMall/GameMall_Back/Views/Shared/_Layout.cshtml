@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云游丶天下后台管理</title>
+    @Styles.Render("~/Css/Menu/bootstrap.css")
+    @Styles.Render("~/Css/Menu/bootstrap.css")
+    @Styles.Render("~/Css/Menu/AdminLTE.css")
+    @Styles.Render("~/Css/Menu/_all-skins.css")
+    @Styles.Render("~/Css/Menu/blue.css")
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="~/Css/shared.css" rel="stylesheet" />
+    <!--批量上传图片-->
+    <link href="~/Css/fileinput.css" rel="stylesheet" />
+       <!-- jQuery 2.2.3 -->
+    @Scripts.Render("~/Js/Menu/jquery-2.2.3.min.js")
+</head>
+<body  class="hold-transition skin-blue sidebar-mini">
+    @Html.Partial("_Header")
+    @Html.Partial("_Sidebar")
+    <div class="wrapper">
+        <div class="content-wrapper">
+            @RenderBody()
+        </div>
+        @Html.Partial("_Footer")
+        @Html.Partial("_ControlSidebar")
+    </div>
+    @Scripts.Render("~/Js/Menu/bootstrap.js")
+    <!--影藏特效-->
+    @Scripts.Render("~/Js/Menu/app.js")
+    @Scripts.Render("~/Js/Menu/demo.js")
+
+    @RenderSection("scripts", required: false)
+    @RenderSection("css", required: false)
+</body>
+</html>

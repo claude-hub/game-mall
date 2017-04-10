@@ -1,0 +1,44 @@
+﻿body {
+}
+.center-block{
+    width:100%
+}
+.center-block .all-goods{
+    width:1210px;
+    margin:auto;
+    background-color:#fff;
+    /*background-color:aquamarine;*/
+}
+.center-block .all-goods .position{
+    line-height:30px;
+}
+.all-goods .type-navigation{
+    border:1px solid #ddd;
+}
+.all-goods .navigation-first{
+    line-height:44px;
+}
+.all-goods .type{
+    padding-left:20px;
+    float:left;
+}
+.all-goods .type-navigation ul{
+    overflow:hidden;
+    margin-left:70px;
+}
+.all-goods .type-navigation li{
+    width:100px;
+    text-align:center;
+    font-size:12px;
+    float:left;
+}
+.all-goods .type-navigation li button{
+    background-color:#fff;
+    border:0;
+}
+.all-goods .navigation-second{
+    line-height:44px;
+}
+.all-goods .navigation-third{
+    line-height:44px;
+}

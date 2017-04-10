@@ -1,0 +1,64 @@
+﻿@model List<GameMall_Back.ViewModels.ViewModeRoles>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section css{
+    @Styles.Render("~/Css/admin.css")
+}
+<section class="content-header">
+    <h1>
+        角色列表
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="tips">
+        <div class="tips-tit">
+            <img src="~/Images/Shared/灯.png" />
+            <span>操作提示</span>
+        </div>
+        <ul>
+            <li>该页面展示了所有的角色列表。</li>
+            <li>可手动添加角色并分配权限、查看日志等操作。</li>
+        </ul>
+    </div>
+    <div class="admin-list">
+        <div class="head">
+            <a href="/Admin/AddRole" class="button">+添加角色</a>
+            <div class="search-block">
+                <input type="text" name="searchKey" />
+                <button class="search"></button>
+            </div>
+        </div>
+        <div class="list">
+            <table>
+                <thead>
+                    <tr>
+                        <th>角色名</th>
+                        <th>创建时间</th>
+                        <th class="operation">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@item.CreationTime</td>
+                            <td class="operation">
+                                <form action="/Admin/AssignPermissions">
+                                    <input name="RoleId" value="@item.RoleId" type="hidden"/>
+                                    <button>分配权限</button>
+                                </form>          
+                                <button>删除</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

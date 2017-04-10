@@ -1,0 +1,100 @@
+﻿.content{
+    width:1210px;
+    margin:auto;
+    overflow:hidden;
+}.content .tit{  
+    margin-top:20px;
+    font-size:14px;
+    background: #fff;
+    line-height: 36px;
+    border: 1px solid #dbdbdb;
+    border-radius: 2px;
+    padding-left: 16px;
+    font-weight:600;
+ }
+ .address .choosed-block{
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    float: right;
+    margin-right: -16px;
+    margin-bottom: -8px;
+ }
+.address .choosed {
+    background: url('../Images/User/正确.png') no-repeat;
+    background-size: 100%;
+}
+.content .address .itemAddress{
+    width:300px;
+    margin: 30px 20px 0px 20px;
+    border: 1px solid #e9dede;
+    background-color:white;
+    line-height:24px;
+    display:inline-block;
+    cursor:pointer;
+}
+.content .address .itemAddress span{
+    margin-right:30px;
+}
+.content .address .itemAddress .name{
+    border-bottom: 1px solid #e9dede;
+    line-height:30px;    
+    padding-left:20px;
+}
+.content .address .itemAddress .default{
+    float:right;
+    line-height: 16px;
+    background-color:#dcd5d5;
+}
+.content .address .itemAddress .mes{
+    padding-left:20px;
+}
+.content .address .itemAddress .modify{
+    color:red;
+}
+.order-mes{
+    text-align:center;
+    margin-top:20px;
+}
+.order-mes thead {
+    line-height:36px;
+    /*border-top:1px solid #727070;*/
+}
+.order-mes thead th{
+    width:300px;
+}
+.order-mes tbody{
+    background-color:white;
+        border: 1px solid #e9dede;
+}
+.order-mes tbody img{
+    vertical-align:middle;
+    width:100px;
+}
+.content .leave-message{
+    margin-top:30px;
+    line-height: 30px;
+}
+.content .place-order{
+    float:right;
+    margin-top:50px;
+}
+.content .place-order input{
+    display:none;
+}
+.content .place-order .sure-address{
+    border:1px solid #dcd5d5;
+    background-color:white;
+        line-height:26px;
+        padding:10px;
+}
+.place-order button{
+    line-height:26px;
+    color:#0094ff;
+    border:1px solid #0094ff;
+    background-color:white;
+    width:80px;
+    border-radius:2px;
+    margin-left:80px;
+    margin-top:20px;
+}

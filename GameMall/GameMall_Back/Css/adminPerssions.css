@@ -1,0 +1,184 @@
+﻿.step{
+    /*border-top: 2px solid #dbdbdb;*/
+    margin-top:20px;
+    padding-top:30px;
+    line-height:16px;
+    background-color:#fff;
+}
+.step ul{
+    list-style:none;
+    overflow:hidden;
+}
+.step ul li{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    line-height: 14px;
+    text-align: left;
+    white-space: nowrap;
+    outline: 0;
+    overflow:hidden;
+}
+.line{
+    padding: 30px 70px;
+}
+.line li{
+    float:left;
+}
+.level1{
+    width:150px;
+}
+.center_close,.roots_close,.bottom_close{
+    width:12px !important;
+    height:12px !important;
+    margin-right: 8px !important;
+    background-image: url('../Images/Shared/close.png');
+    background-size:100%;
+}
+.center_open,.roots_open,.bottom_open{
+    width:12px !important;
+    height:12px !important;
+    margin-right: 8px !important;
+    background-image: url('../Images/Shared/open.png');
+    background-size:100%;
+}
+#treeDemo_16{
+    margin-left:70px;
+}
+#treeDemo_17{
+    margin-top:50px;
+}
+#treeDemo_17_ul li{
+    float:left;
+    padding: 26px 30px;
+}
+.node_name{
+    margin-left:-12px;
+}
+.checkbox_true_part{
+    background-image: url('../Images/Shared/input_checkbox.png');
+    background-size:100%;
+}
+.checkbox_true_full_focus{
+    background-image: url('../Images/Shared/input_checked.png');
+    background-size:100%;
+}
+.checkbox_false_full_focus{
+    background-image: url('../Images/Shared/input_checkbox.png');
+    background-size:100%;
+}
+li span.button.chk.checkbox_false_full {
+    background-image: url('../Images/Shared/input_checkbox.png');
+    background-size:100%;
+}
+li span.button.chk.checkbox_true_full {
+    background-image: url('../Images/Shared/input_checked.png');
+    background-size:100%;
+}
+li span.button.chk {
+    width: 12px;
+    height: 12px;
+    margin: 0 3px 0 0;
+    cursor: auto;
+}
+li span.button {
+    line-height: 0;
+    margin: 0;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    border: 0 none;
+    cursor: pointer;
+    outline: none;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+
+
+
+/*.step label{
+    font-weight:normal;
+    margin-left: 34px;
+}
+.step .title{
+    height: 38px;
+    line-height: 38px;
+    background: #f2f2f2;
+}
+.step label span,input{
+    vertical-align:middle;
+}
+
+.choose .items{
+    border-top: 1px solid #dcdcdc;
+    padding: 20px 0 20px 110px;
+}
+.choose{
+    background-color:#fff;
+}
+.choose .items ul{
+    list-style:none;
+    overflow:hidden;
+}
+.choose .items li{
+    height: 40px;
+    line-height: 40px;
+    width: 180px;
+    margin-right: 20px;
+    float:left;
+}*/
+
+/*添加角色*/
+.step .item{
+    width:100%;
+    background:#fff;
+    padding-top:10px;
+    padding-bottom:20px;
+}
+.step .role{
+    height:28px;
+    line-height:28px;
+}
+.step .role .word{
+    width:30%;
+    overflow:hidden;
+    float:left;
+    line-height:28px;
+    text-align:right;
+}
+.step .role .start{
+    color:#ec5151;
+    margin-right:4px;
+}
+.step .role input{
+    width:300px;
+    border: 1px solid #dbdbdb;
+    border-radius: 2px;
+    height: 28px;
+    line-height: 28px;
+    margin-left:10px;
+}
+.select-all {
+    margin-left:40%;
+    line-height:30px;
+    margin-top:20px;
+}
+.select-all  input,span{
+    vertical-align:middle;
+}
+.select-all button{
+    border: 1px solid #ec5151;
+    background: #ec5151;
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    font-size: 14px;
+    padding: 0 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top:30px;
+    margin-bottom:50px;
+    margin-left:10px;    
+}
