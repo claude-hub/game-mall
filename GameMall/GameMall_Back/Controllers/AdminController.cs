@@ -48,6 +48,7 @@ namespace GameMall_Back.Controllers
                 if (admin != null)
                 {
                     Session.Add("AdminId", admin.AdminId);
+                    Session.Add("AdminName", admin.Users.UserName);
                     AdminLog adminLog = new AdminLog()
                     {
                         AdminId = admin.AdminId,

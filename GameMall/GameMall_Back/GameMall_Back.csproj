@@ -217,35 +217,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\Admin\g-icon.png" />
+    <Content Include="Images\Admin\h-icon.png" />
+    <Content Include="Images\Admin\o-icon.png" />
+    <Content Include="Images\Admin\p-icon.png" />
     <Content Include="Images\Admin\user2-160x160.jpg" />
-    <Content Include="Images\Goods\1.jpg" />
-    <Content Include="Images\Goods\20170216091629118524.jpg" />
-    <Content Include="Images\Goods\20170216091629620086.jpg" />
-    <Content Include="Images\Goods\20170216091629908588.jpg" />
-    <Content Include="Images\Goods\20170216092556416366.jpg" />
-    <Content Include="Images\Goods\20170216092631266658.jpg" />
-    <Content Include="Images\Goods\20170217054257218475.jpg" />
-    <Content Include="Images\Goods\20170217054638966279.jpg" />
-    <Content Include="Images\Goods\20170217054958524242.jpg" />
-    <Content Include="Images\Goods\20170217055759625621.jpg" />
-    <Content Include="Images\Goods\20170217060931428432.jpg" />
-    <Content Include="Images\Goods\20170217061531850182.jpg" />
-    <Content Include="Images\Goods\20170217061543993651.jpg" />
-    <Content Include="Images\Goods\20170218024738313646.jpg" />
-    <Content Include="Images\Goods\20170218024808369977.jpg" />
-    <Content Include="Images\Goods\20170218044908878525.jpg" />
-    <Content Include="Images\Goods\20170218044958521892.jpg" />
-    <Content Include="Images\Goods\20170218045101258722.jpg" />
-    <Content Include="Images\Goods\20170218045815864928.jpg" />
-    <Content Include="Images\Goods\20170218045847401141.jpg" />
-    <Content Include="Images\Goods\20170218045945378361.jpg" />
-    <Content Include="Images\Goods\20170222033859927796.jpg" />
-    <Content Include="Images\Goods\20170222042121885932.jpg" />
-    <Content Include="Images\Goods\20170222042436668631.jpg" />
-    <Content Include="Images\Goods\20170222042659230748.jpg" />
-    <Content Include="Images\Goods\20170222050037294987.jpg" />
-    <Content Include="Images\Goods\20170222072934566072.jpg" />
-    <Content Include="Images\Goods\hot3.jpg" />
     <Content Include="Images\Login\login_left_bg.jpg" />
     <Content Include="Images\Login\logo-name.png" />
     <Content Include="Images\Login\seller_login_bg.jpg" />
@@ -258,7 +234,7 @@
     <Content Include="Images\Order\modify.png" />
     <Content Include="Images\Order\ui-step.png" />
     <Content Include="Images\Shared\cheakbox.png" />
-    <Content Include="Images\Shared\open.png" />
+    <Content Include="Images\Shared\close.png" />
     <Content Include="Images\Shared\first_page.png" />
     <Content Include="Images\Shared\input_checkbox.png" />
     <Content Include="Images\Shared\input_checked.png" />
@@ -266,7 +242,7 @@
     <Content Include="Images\Shared\loading-sm.gif" />
     <Content Include="Images\Shared\loading.gif" />
     <Content Include="Images\Shared\next_page.png" />
-    <Content Include="Images\Shared\close.png" />
+    <Content Include="Images\Shared\open.png" />
     <Content Include="Images\Shared\photo_icon.png" />
     <Content Include="Images\Shared\pre_page.png" />
     <Content Include="Images\Shared\return.png" />
@@ -307,6 +283,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\config.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

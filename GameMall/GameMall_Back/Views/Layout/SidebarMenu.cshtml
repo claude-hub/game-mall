@@ -4,7 +4,11 @@
 {
     <li class="treeview">
         <a href="#">
-            <i class="fa fa-share"></i> <span>@item.Name</span>
+            @*<i class="fa fa-share">
+                
+            </i>*@ 
+            <img src="@item.Icon" />
+            <span style="vertical-align: middle;">@item.Name</span>
             @if (item.ChildMenu.Count > 0)
             {
                 <span class="pull-right-container">

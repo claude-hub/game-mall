@@ -71,7 +71,7 @@ namespace GameMall_Data.Service
                     Id = item.MenuId,
                     ParentId = item.ParentId,
                     Name = item.Name,
-                    //Icon = item.Icon,
+                    Icon = item.Icon,
                     Url = item.Url,
                     Childrens = GetMenuChild(item.MenuId)
                 });

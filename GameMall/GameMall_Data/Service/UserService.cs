@@ -160,7 +160,52 @@ namespace GameMall_Data.Service
             {
                 return null;
             }
+        }
 
+        /// <summary>
+        /// 发送验证码
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public string SendEmailOfVerifyCode(string email)
+        {
+            int customerID = 1;
+            string verifyCode = Guid.NewGuid().ToString();
+            try
+            {
+                System.Net.Mail.MailAddress from = new System.Net.Mail.MailAddress("314705487@qq.com", "云翳商城"); //填写电子邮件地址，和显示名称
+                System.Net.Mail.MailAddress to = new System.Net.Mail.MailAddress(email, "客户"); //填写邮件的收件人地址和名称
+                //设置好发送地址，和接收地址，接收地址可以是多个
+                System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
+                mail.From = from;
+                mail.To.Add(to);
+                mail.Subject = "验证码";
+
+                StringBuilder strBody = new StringBuilder();
+                strBody.Append("请将下面的验证码输入到重置密码的验证处，仅限本次访问有效，验证码只能使用一次，请尽快重置密码！</br>");
+                strBody.Append("<h3>验证码:&emsp;" + verifyCode + "</h3>");
+                strBody.Append("<a href='http://localhost:31061/Order/ActivePage?customerID=" + customerID + "&valiDataCode =" + verifyCode + "'>点击这里</a></br>");
+
+                mail.Body = strBody.ToString();
+                mail.IsBodyHtml = true;//设置显示htmls
+
+                //设置好发送邮件服务地址
+                System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient();
+                client.Host = "smtp.qq.com";
+
+                //填写服务器地址相关的用户名和密码信息
+                client.Credentials = new System.Net.NetworkCredential("314705487@qq.com", "gxzcuzewxuymbiaf");
+                client.EnableSsl = true;
+
+                //发送邮件
+                client.Send(mail);
+                return verifyCode;
+            }
+            catch (Exception e)
+            {
+                Console.Write(e);
+            }
+            return string.Empty;
         }
         public List<Admin> GetAdminList()
         {

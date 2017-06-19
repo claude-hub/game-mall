@@ -3,16 +3,22 @@
     font-size:14px;
     font-family:KaiTi;
     text-align:center;
+
+        width: 100%;
+    background: url(/Images/Login/seller_login_bg.jpg) center top no-repeat;
+    background-size:cover;
+    height:100%;
 }
 a{
     text-decoration:none;
 }
-.bg-block {
+/*.bg-block {
     width: 100%;
-    /*min-height: 638px;*/
     min-height: 662px;
-    background: url(/Images/Login/seller_login_bg.jpg) center center no-repeat;
-}
+    background: url(/Images/Login/seller_login_bg.jpg) center top no-repeat;
+    background-size:cover;
+    height:100%;
+}*/
 .login-container {
     width:778px;
     height:auto;

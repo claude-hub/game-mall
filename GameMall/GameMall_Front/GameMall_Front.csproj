@@ -175,6 +175,7 @@
     <Compile Include="ViewModels\Customer\ViewModelCustomers.cs" />
     <Compile Include="ViewModels\Customer\ViewModelDeliveryAddress.cs" />
     <Compile Include="ViewModels\Customer\ViewModelFavorites.cs" />
+    <Compile Include="ViewModels\Email.cs" />
     <Compile Include="ViewModels\Goods\ViewModelEvaluation.cs" />
     <Compile Include="ViewModels\Goods\ViewModelGoods.cs" />
     <Compile Include="ViewModels\Goods\ViewModelInstallPictures.cs" />
@@ -198,6 +199,7 @@
     <Content Include="Css\orderDetail.css" />
     <Content Include="Css\page.css" />
     <Content Include="Css\pay.css" />
+    <Content Include="Css\register.css" />
     <Content Include="Css\right-sidebar.css" />
     <Content Include="Css\shopping_car.css" />
     <Content Include="Css\sidebar.css" />
@@ -269,6 +271,7 @@
     <Content Include="Images\User\错误.png" />
     <Content Include="Images\wdsc.png" />
     <Content Include="Images\weixin_code_145.png" />
+    <Content Include="Images\alipay.png" />
     <Content Include="Js\Ajax.js" />
     <Content Include="Js\checked.js" />
     <Content Include="Js\common.js" />
@@ -295,6 +298,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\config.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

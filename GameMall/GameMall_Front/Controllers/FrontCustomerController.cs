@@ -1,5 +1,6 @@
 ﻿using GameMall_Data.Data;
 using GameMall_Data.Service;
+using GameMall_Front.ViewModels;
 using GameMall_Front.ViewModels.Customer;
 using GameMall_Front.ViewModels.Order;
 using System;
@@ -304,7 +305,7 @@ namespace GameMall_Front.Controllers
             return PartialView("ItemShoppingCar", shoppingCarDTO);
         }
 
-        public string GetImageFromWeb()
+        private string GetImageFromWeb()
         {
             HttpFileCollection uploadFille = System.Web.HttpContext.Current.Request.Files;
             string fileName = uploadFille[0].FileName;
@@ -346,6 +347,36 @@ namespace GameMall_Front.Controllers
                 }
             }
         }
+        public ActionResult SendMail(string email)
+        {
+            var a = userService.SendEmailOfVerifyCode(email);
+            return Content("<script>alert('邮件已成功发送!')</script>");
 
+            //string senderServerIp = "smtp.163.com";   //使用163代理邮箱服务器（也可是使用qq的代理邮箱服务器，但需要与具体邮箱对相应）
+            //string toMailAddress = email;              //要发送对象的邮箱
+            //string fromMailAddress = "15223246130@163.com";//你的邮箱
+            //string subjectInfo = "验证码";                  //主题
+            //string bodyInfo = "<p>" + "1234567" + "</p>";//以Html格式发送的邮件
+            //string mailUsername = "15223246130@163.com";              //登录邮箱的用户名
+            //string mailPassword = "VIPZYP851314"; //对应的登录邮箱的第三方密码（你的邮箱不论是163还是qq邮箱，都需要自行开通stmp服务）
+            //string mailPort = "25";                      //发送邮箱的端口号
+            //                                             //string attachPath = "E:\\123123.txt; E:\\haha.pdf";
+
+            ////创建发送邮箱的对象
+            //Email myEmail = new Email(senderServerIp, toMailAddress, fromMailAddress, subjectInfo, bodyInfo, mailUsername, mailPassword, mailPort, false, false);
+
+            ////添加附件
+            ////email.AddAttachments(attachPath);
+
+            //if (myEmail.Send())
+            //{
+            //    return Content("<script>alert('邮件已成功发送!')</script>");
+            //}
+            //else
+            //{
+            //    return Content("<script>alert('邮件发送失败!')</script>");
+            //}
+
+        }
     }
 }

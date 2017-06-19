@@ -41,6 +41,15 @@
                     <td>@item.VersionName</td>
                     <td>@item.DeliveryName</td>
                     <td>@item.Price</td>
+                    @if (item.OrderStatus == 0)
+                    {
+                        <td>
+                            <div>未付款</div>
+                            <div>未确认</div>
+                            <div>未发货</div>
+                            <div>未签收</div>
+                        </td>
+                    }
                     @if (item.OrderStatus == 1)
                     {
                         <td>

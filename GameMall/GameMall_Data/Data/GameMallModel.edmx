@@ -97,7 +97,7 @@
           </Key>
           <Property Name="MenuId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="Icon" Type="image" />
+          <Property Name="Icon" Type="nvarchar" MaxLength="50" />
           <Property Name="Url" Type="nvarchar" MaxLength="50" />
           <Property Name="Code" Type="varchar" MaxLength="500" />
           <Property Name="ParentId" Type="uniqueidentifier" Nullable="false" />
@@ -828,7 +828,7 @@
           </Key>
           <Property Name="MenuId" Type="Guid" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Icon" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Icon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Url" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Code" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="ParentId" Type="Guid" Nullable="false" />
