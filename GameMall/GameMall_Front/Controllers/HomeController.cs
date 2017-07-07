@@ -21,10 +21,5 @@ namespace GameMall_Front.Controllers
         {
             return View();
         }
-
-        public ActionResult Home()
-        {
-            return View();
-        }
     }
 }

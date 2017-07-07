@@ -4,16 +4,25 @@
     width:100%
 }
 .center-block .all-goods{
-    width:1210px;
+    /*width:1210px;*/
     margin:auto;
     background-color:#fff;
     /*background-color:aquamarine;*/
 }
-.center-block .all-goods .position{
-    line-height:30px;
+.position-block {
+    width:100%;
+    background-image: url('../Images/Shared/location.png');
 }
-.all-goods .type-navigation{
-    border:1px solid #ddd;
+.center-block .all-goods .position {
+    color: #e1e1e1;
+    width: 1210px;
+    margin: auto;
+    line-height: 40px;
+}
+.all-goods .type-navigation {
+    border: 1px solid #ddd;
+    width: 1210px;
+    margin: auto;
 }
 .all-goods .navigation-first{
     line-height:44px;
@@ -41,4 +50,8 @@
 }
 .all-goods .navigation-third{
     line-height:44px;
+}
+.all-goods .goods-list {
+    width: 1210px;
+    margin: auto;
 }

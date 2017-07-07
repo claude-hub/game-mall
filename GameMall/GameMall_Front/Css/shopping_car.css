@@ -1,11 +1,19 @@
 ﻿.container{
-    margin:auto;
-    width:1210px;
+
 }
-.container .position{
-    line-height:36px;
+.container .position {
+    color: #e1e1e1;
+    width: 1210px;
+    margin: auto;
+    line-height: 40px;
+}
+.position-block {
+    width: 100%;
+    background-image: url('../Images/Shared/location.png');
 }
 .shopping_car table {
+    margin: auto;
+    width: 1210px;
     /*min-width: 1090px;*/
     border-top: 2px solid #dbdbdb;
     border-bottom: 2px solid #dbdbdb;

@@ -34,14 +34,13 @@
                         {
                             <tr>
                                 <td>
-                                    <img src="~/Images/Goods/1090.jpg" />
                                     <span>@item.GoodsName</span>
                                 </td>
                                 <td>@item.VersionName</td>
                                 <td>@item.Price</td>
                                 <td>@item.OrderGoodsNumber</td>
                                 <td>
-                                    <input name="subtotal" value="@(item.Price*item.OrderGoodsNumber)" />
+                                    <input style="border:0;text-align:center" readonly="readonly" name="subtotal" value="@(item.Price*item.OrderGoodsNumber)" />
                                 </td>
                             </tr>
                         }
@@ -57,7 +56,7 @@
                 <div class="sure-address">
                     <div>
                         <span>实付款：</span>
-                        <input style="display:block" id="actual_pay" />
+                        <input style="border:0;font-size:20px;display:inline-block" readonly="readonly"  id="actual_pay" />
                     </div>
                     <div id="sureAddress">
                         @Html.Action("SureAddress", "FrontCustomer")

@@ -50,7 +50,28 @@
             </div>
         </div>
     </div>
-    <div class="head-search">
+    <div class="nav-block">
+        <div class="navbar-block">
+            <span class="logo">
+                <img src="~/Images/Shared/Logo.png" />
+            </span>
+            <span>
+                <span><a href="/">首页</a></span>
+                <span><a href="/FrontGoods/AllGoods">所有游戏</a></span>
+                <span><a href="/FrontGoods/SearchByType?type=0">热门游戏</a></span>
+                <span><a href="/FrontGoods/SearchByType?type=1">单机游戏</a></span>
+                <span><a href="/FrontGoods/SearchByType?type=2">网络游戏</a></span>
+                <span><a href="/FrontGoods/SearchByType?type=3">游戏周边</a></span>
+            </span>
+            <span>
+                <span>
+                    @*<img src="~/Images/Shared/search-logo.png" />*@
+                    <input placeholder="搜索" />
+                </span>
+            </span>
+        </div>
+    </div>
+    @*<div class="head-search">
         <div class="logo">
             <img src="~/Images/logo.png" />
             <div class="logo-word">游戏商城</div>
@@ -127,102 +148,8 @@
                             </li>
                         </ul>
                     </div>
-                    @*<div class="pros subpage">
-                        <h2>全部游戏分类</h2>
-                        <ul class="prosul clearfix" id="proinfo">
-                            <li class="enjoy">
-                                <img src="~/Images/HomeImages/数码.png" />
-                                <span>单机游戏</span>
-                                <div class="prosmore hide">
-                                    <span><em><a href="#">全部(663)</a></em></span>
-                                    <span><em class="morehot"><a class="morehot" href="/FrontGoods/SearchGoods/?searchKey=侠客风云传">侠客风云传</a></em></span>
-                                    <span><em class="morehot"><a class="morehot" href="#">KTV(8)</a></em></span>
-                                    <span><em><a href="#">运动健身(95)</a></em></span>
-                                    <span><em><a href="#">游乐电玩(48)</a></em></span>
-                                    <span><em><a href="#">展览演出(13)</a></em></span>
-                                    <span><em class="morehot"><a class="morehot" href="#">足疗按摩(8)</a></em></span>
-                                    <span><em><a href="#">洗浴(11)</a></em></span>
-                                    <span><em><a href="#">其他(29)</a></em></span>
-                                    <span><em><a href="#">采摘(2)</a></em></span>
-                                    <span><em><a href="#">滑雪(4)</a></em></span>
-                                    <span><em><a href="#">温泉(427)</a></em></span>
-                                </div>
-                            </li>
-                            <li class="travel">
-                                <img src="~/Images/HomeImages/数码.png" />
-                                <span>网络游戏</span>
-                                <div class="prosmore hide">
-                                    <span><em><a href="#">全部(13602)</a></em></span>
-                                    <span><em class="morehot"><a class="morehot" href="#">酒店(9044)</a></em></span>
-                                    <span><em><a href="#">旅游(1775)</a></em></span>
-                                    <span><em><a href="#">景点公园(935)</a></em></span>
-                                    <span><em><a href="#">其他(1848)</a></em></span>
-                                </div>
-                            </li>
-                            <li class="life">
-                                <img src="~/Images/HomeImages/数码.png" />
-                                <span>手机游戏</span>
-                                <div class="prosmore hide">
-                                    <span><em><a href="#">全部(333)</a></em></span>
-                                    <span><em><a href="#">写真(9)</a></em></span>
-                                    <span><em class="morehot"><a class="morehot" href="#">婚纱摄影(212)</a></em></span>
-                                    <span><em><a href="#">儿童摄影(1)</a></em></span>
-                                    <span><em><a href="#">汽车养护(3)</a></em></span>
-                                    <span><em><a href="#">教育培训(91)</a></em></span>
-                                    <span><em><a href="#">体检(8)</a></em></span>
-                                    <span><em><a href="#">口腔(1)</a></em></span>
-                                    <span><em><a href="#">其他(8)</a></em></span>
-                                </div>
-                            </li>
-                            <li class="women">
-                                <img src="~/Images/HomeImages/数码.png" />
-                                <span>数码产品</span>
-                                <div class="prosmore hide">
-                                    <span><em><a href="#">全部(14)</a></em></span>
-                                    <span><em class="morehot"><a class="morehot" href="#">美发(7)</a></em></span>
-                                    <span><em><a href="#">美甲(3)</a></em></span>
-                                    <span><em><a href="#">美容美体(4)</a></em></span>
-                                </div>
-                            </li>
-                            <li class="goods bd-solid">
-                                <img src="~/Images/HomeImages/游戏.png" />
-                                <span>游戏主机</span>
-                                <div class="prosmore hide">
-                                    <span><em><a href="#">全部(112343)</a> </em></span>
-                                    <span><em class="morehot"><a class="morehot" href="#">服装(32747)</a> </em></span>
-                                    <span><em><a href="#">生活家居(14441)</a> </em></span>
-                                    <span><em><a href="#">食品饮料(10116)</a> </em></span>
-                                    <span><em><a href="#">化妆品(12707)</a> </em></span>
-                                    <span><em><a href="#">箱包(7621)</a> </em></span>
-                                    <span><em><a href="#">家用电器(3775)</a> </em></span>
-                                    <span><em><a href="#">手机数码(3639)</a> </em></span>
-                                    <span><em><a href="#">鞋靴(11686)</a> </em></span>
-                                    <span><em><a href="#">饰品(4558)</a> </em></span>
-                                    <span><em><a href="#">手表(1482)</a> </em></span>
-                                    <span><em><a href="#">母婴用品(3659)</a> </em></span>
-                                    <span><em><a href="#">玩具(777)</a> </em></span>
-                                    <span><em><a href="#">抽奖(7)</a> </em></span>
-                                    <span><em><a href="#">礼品(197)</a> </em></span>
-                                    <span><em><a href="#">其他(4931)</a> </em></span>
-                                </div>
-                            </li>
-                            <li class="goods bd-solid">
-                                <img src="~/Images/HomeImages/游戏.png" />
-                                <span>游戏周边</span>
-                                <div class="prosmore hide">
-
-                                </div>
-                            </li>
-                            <li class="goods bd-solid">
-                                <img src="~/Images/HomeImages/游戏.png" />
-                                <span>游戏美图</span>
-                                <div class="prosmore hide">
-                                </div>
-                            </li>
-                        </ul>
-                    </div>*@
                 </div>
             </div>
         </div>
-    </div>
+    </div>*@
 </header>

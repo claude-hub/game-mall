@@ -194,6 +194,7 @@
     <Content Include="Content\PagedList.css" />
     <Content Include="Css\address.css" />
     <Content Include="Css\allGoods.css" />
+    <Content Include="Css\bootstrap.min.css" />
     <Content Include="Css\itemGoods.css" />
     <Content Include="Css\order.css" />
     <Content Include="Css\orderDetail.css" />
@@ -219,23 +220,31 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\Carousel\0.jpg" />
     <Content Include="Images\Carousel\1.jpg" />
+    <Content Include="Images\Carousel\1.png" />
     <Content Include="Images\Carousel\2.jpg" />
     <Content Include="Images\Carousel\3.jpg" />
     <Content Include="Images\Carousel\4.jpg" />
     <Content Include="Images\Carousel\5.jpg" />
     <Content Include="Images\chongzhi.png" />
+    <Content Include="Images\CustomerHead\2017-03-23 17.22.53.jpg" />
+    <Content Include="Images\CustomerHead\2017-03-23 17.28.20.jpg" />
+    <Content Include="Images\CustomerHead\2017-03-23 21.21.25.jpg" />
+    <Content Include="Images\CustomerHead\2017-04-06 12.24.22.png" />
+    <Content Include="Images\CustomerHead\2017-04-06 12.24.38.png" />
+    <Content Include="Images\CustomerHead\2017-04-09 13.57.19.jpg" />
+    <Content Include="Images\CustomerHead\2017-04-09 13.57.59.jpg" />
+    <Content Include="Images\CustomerHead\2017-04-09 13.58.06.jpg" />
     <Content Include="Images\demo.jpg" />
     <Content Include="Images\Footer\1.png" />
     <Content Include="Images\Footer\2.png" />
     <Content Include="Images\Footer\3.png" />
     <Content Include="Images\Footer\4.png" />
-    <Content Include="Images\Goods\1090.jpg" />
-    <Content Include="Images\HomeImages\001.jpg" />
-    <Content Include="Images\HomeImages\1.jpg" />
-    <Content Include="Images\HomeImages\2.jpg" />
-    <Content Include="Images\HomeImages\3.jpg" />
-    <Content Include="Images\HomeImages\hot1.jpg" />
-    <Content Include="Images\HomeImages\hot2.jpg" />
+    <Content Include="Images\HomeImages\Label.png" />
+    <Content Include="Images\HomeImages\Label2.png" />
+    <Content Include="Images\HomeImages\yun1.png" />
+    <Content Include="Images\HomeImages\yun2.png" />
+    <Content Include="Images\Shared\location.png" />
+    <Content Include="Images\Shared\Logo.png" />
     <Content Include="Images\HomeImages\光碟.png" />
     <Content Include="Images\HomeImages\数码.png" />
     <Content Include="Images\HomeImages\游戏.png" />
@@ -259,6 +268,7 @@
     <Content Include="Images\Order\modify-hover.png" />
     <Content Include="Images\Order\modify.png" />
     <Content Include="Images\Order\ui-step.png" />
+    <Content Include="Images\Shared\search-logo.png" />
     <Content Include="Images\Sidebar\user_grey.png" />
     <Content Include="Images\User\banner.png" />
     <Content Include="Images\User\logo-name.png" />
@@ -273,6 +283,7 @@
     <Content Include="Images\weixin_code_145.png" />
     <Content Include="Images\alipay.png" />
     <Content Include="Js\Ajax.js" />
+    <Content Include="Js\bootstrap.min.js" />
     <Content Include="Js\checked.js" />
     <Content Include="Js\common.js" />
     <Content Include="Js\goods_detail.js" />
@@ -327,7 +338,6 @@
     <Content Include="Views\Shared\_Sidebar.cshtml" />
     <Content Include="Views\FrontGoods\AllGoods.cshtml" />
     <Content Include="Views\FrontGoods\GoodsDetail.cshtml" />
-    <Content Include="Views\Home\Home.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\FrontGoods\SingleGames.cshtml" />
     <Content Include="Views\FrontCustomer\Login.cshtml" />
@@ -374,7 +384,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\CustomerHead\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

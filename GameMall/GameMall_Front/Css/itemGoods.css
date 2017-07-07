@@ -24,11 +24,28 @@
     transform: translate(0,-2px); 
     box-shadow: 0 3px 3px #CCC; 
 }
-.plist li button{
-    margin-top: 16px;
-    width: 100px;
-    line-height: 20px;
-}
+    .plist li button {
+        margin-top: 16px;
+        width: 100px;
+        line-height: 20px;
+        /*background-color: #999;
+        border: 0;
+        color: #fff;
+        border-radius: 4px;
+        height: 28px;
+        cursor: pointer;
+        outline: none;*/
+        border: 1px solid #d9d9d9;
+        background: #fff;
+        border-radius: 4px;
+        height: 28px;
+        cursor: pointer;
+        outline: none;
+    }
+        .plist li button:hover {
+            background: #27a9e3;
+            color:#fff;
+        }
 /*飞入购物车*/
 .fly_item {
     width: 48px;

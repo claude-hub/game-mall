@@ -1,17 +1,17 @@
 .carousel{
-    width:1210px;
+    width:1366px;
     margin:auto;
 }
 .slider {
-	width: 862px;
-    margin-left:210px;  
+	/*width: 862px;*/
+    /*margin-left:210px;*/  
 }
 .slider-container {
-	height: 485px;
+	height: 400px;
 	margin: 0 auto -25px;
 	overflow: hidden;
 	position: relative;
-	width: 862px;
+	/*width: 862px;*/
     z-index:-1;
 }
 .slider-container .slider-wrapper {
@@ -27,14 +27,14 @@
 }
 .slider-container .slide {
 	float: left;
-	height: 485px;
+	/*height: 485px;*/
 	overflow: hidden;
 	position: relative;
-	width: 862px;
+	/*width: 862px;*/
 }
 .slider-container .slide img{
-    width:862px;
-    height:485px;
+    width:1366px;
+    /*height:485px;*/
 }
 .slider-nav {
 	text-align: center;

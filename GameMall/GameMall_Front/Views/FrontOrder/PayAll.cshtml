@@ -13,13 +13,13 @@
         <form action="/FrontOrder/PayAll" method="post">
             @foreach (var item in Model)
             {
-                <input name="OrderId" value="@item.OrderId" />
+                <input type="hidden" name="OrderId" value="@item.OrderId" />
             }
             <button>确认支付</button>
         </form>
-        <form>
+        
             <button>取消订单</button>
-        </form>
+        
     </div>
 </div>
 
