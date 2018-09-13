@@ -286,7 +286,7 @@ namespace GameMall_Back.Controllers
         }
         public ActionResult AdminItem(ViewModelAdmin admin)
         {
-            var user = us.GetUserByAdminId(admin.AdminId);
+            var user = us.GetUserByAdminId(admin.UserId);
             var userDTO = new ViewModelUsers
             {
                 UserName=user.UserName,
