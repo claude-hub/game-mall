@@ -1,0 +1,33 @@
+﻿@model List<GameMall_Front.ViewModels.Customer.ViewModelDeliveryAddress>
+@{ 
+    Layout = null;
+}
+@foreach (var item in Model)
+{
+    <div class="itemAddress">
+            <div class="name">
+                <span>市/省：@item.Province</span>
+                <span>@item.DeliveryName（收）</span>
+                @if (@item.Default == 1)
+                {
+                    <a class="default">默认地址</a>
+                }
+                else
+                {
+                    <a class="default">设为默认</a>
+                }
+            </div>
+            <div class="mes">
+                <p>电话：@item.TelNum</p>
+                <div class="detail-address">
+                    <span>区/县：@item.Area</span>
+                    <span>街道：@item.Street</span>
+                </div>
+                <p>详细地址：@item.DetailAddress</p>
+                <a class="modify" href="/FrontCustomer/MyMall">修改</a>
+            </div>
+        <div class="choosed-block" id="@item.DeliveryAddressId"></div>
+    </div>    
+}
+
+

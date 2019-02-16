@@ -1,0 +1,15 @@
+﻿@model List<GameMall_Front.ViewModels.Goods.ViewModelVersions>
+@{ 
+    Layout = null;
+}
+@for (int i = 0; i < Model.Count; i++)
+{
+    if (i == 0)
+    {
+        <li id="@Model[i].VersionId" class="choosed">@Model[i].VersionName</li>
+    }
+    else
+    {
+        <li id="@Model[i].VersionId">@Model[i].VersionName</li>
+    }
+}

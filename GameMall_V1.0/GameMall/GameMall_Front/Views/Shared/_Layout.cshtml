@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云游丶天下</title>
+    <!--右侧菜单-->
+    @Styles.Render("~/Css/sidebar.css")
+    @*@Styles.Render("~/Css/right-sidebar.css")*@
+    <!--头部-->
+    @Styles.Render("~/Css/header.css")
+    <!--页脚-->
+    @Styles.Render("~/Css/footer.css")
+    <!--单个商品-->
+    @Styles.Render("~/Css/itemGoods.css")
+    <!--全部商品-->
+    @Styles.Render("~/Css/allGoods.css")
+</head>
+<body>
+    @Html.Partial("_Header")
+        @RenderBody() 
+    @Html.Partial("_Footer");
+    @Html.Partial("_Sidebar")
+
+    <script src="~/Js/jquery-1.9.1.js"></script>
+    <!--右侧导航-->
+    <script src="~/Js/bootstrap.min.js"></script>
+    @Scripts.Render("~/Js/parabola.js")
+    @Scripts.Render("~/Js/sidebar.js")
+    <!--轮播-->
+    @Scripts.Render("~/Js/slider.js")
+    @Scripts.Render("~/Js/slider.min.js")
+    <!--左侧菜单-->
+    @Scripts.Render("~/Js/menu.js")
+    <!--鼠标-->
+    @Scripts.Render("~/Js/mouse.js")
+    <!--ajax跳转-->
+    @Scripts.Render("~/Js/Ajax.js")
+
+    @RenderSection("scripts", required: false)
+    @RenderSection("css", required: false)
+    </body>
+</html>

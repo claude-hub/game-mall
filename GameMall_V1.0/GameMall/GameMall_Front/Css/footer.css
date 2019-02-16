@@ -1,0 +1,111 @@
+﻿footer {
+    margin-top: 40px;
+    width: 100%;
+    background-color: #fff;
+}
+
+.footer {
+    /*width:1210px;*/
+    margin: auto;
+}
+
+
+.about {
+    padding: 23px 0 40px;
+    background-color: #FFF;
+    margin-top: 40px;
+}
+
+.about ul {
+    overflow:hidden;
+    width: 1210px;
+    margin-bottom:20px;
+}
+.about .return{
+    border:0;
+}
+.about li {
+    float: left;
+    width: 297px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    font-size: 18px;
+    border-right: 1px solid #e9e9e9;
+    color: #999;
+}
+.about .wrap img{
+    width:45px;
+    height:45px;
+    vertical-align: middle;
+}
+.about ul  span{
+    vertical-align:middle;
+}
+.about .link {
+overflow: hidden;
+    padding-top: 40px;
+    border-top: 1px solid #e9e9e9;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #e9e9e9;
+}
+
+.about dl {
+    float: left;
+    width: 223px;
+    text-indent: 70px;
+}
+
+.about dt {
+    height: 35px;
+    font-size: 14px;
+}
+
+.about dd {
+    height: 24px;
+}
+
+.about dd a {
+    color: #999;
+}
+
+.about dd a:hover {
+    color: #27a9e3;
+}
+
+.about .contact {
+    float:left;
+    padding-left: 67px;
+    border-left: 1px #e9e9e9 solid;
+}
+
+.about .contact .tel {
+    font-size: 24px;
+    font-family: Arial;
+}
+
+.about .contact .time {
+    padding: 16px 0 24px 0;
+    font-size: 14px;
+    color: #999;
+}
+
+.about .contact a {
+    display: block;
+    width: 154px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    font-size: 16px;
+    border: 1px solid #27a9e3;
+    border-radius: 3px;
+}
+.about .contact a:hover {
+    background-color: #27a9e3;
+    border-color: #27a9e3;
+    color: #FFF;
+}
+.about p{
+    margin-top:10px;
+    text-align:center;
+}

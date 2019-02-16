@@ -1,0 +1,98 @@
+﻿@model List<GameMall_Back.ViewModels.Goods.ViewModelEvaluation>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section css{
+    @Styles.Render("~/Css/admin.css")
+}
+<section class="content-header">
+    <h1>
+        评论列表
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> 商品中心</a></li>
+        <li class="active">评论列表</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="tips">
+        <div class="tips-tit">
+            <img src="~/Images/Shared/灯.png" />
+            <span>操作提示</span>
+        </div>
+        <ul>
+            <li>该页面展示了所有的评论。</li>
+            <li>可回复评论。</li>
+        </ul>
+    </div>
+    <div class="admin-list">
+        <div class="head">
+            <div class="search-block">
+                <input type="text" name="searchKey" />
+                <button class="search"></button>
+            </div>
+        </div>
+        <div class="list">
+            <table>
+                <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>用户名</th>
+                        <th>游戏名</th>
+                        <th>版本名</th>
+                        <th>评论</th>
+                        <th>回复内容</th>
+                        <th class="operation">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.EvaluationId</td>
+                            <td>@Html.Action("GetCustomerName", "Admin",new { item.CustomerId})</td>
+                            <td></td>
+                            <td></td>
+                            <td>@item.Evaluate</td>
+                            <td>@item.Reply</td>
+                            <td class="operation">
+                                <form action="/Goods/Reply">
+                                    <div>
+                                        <div><input name="EvaluationId" value="@item.EvaluationId" type="hidden"/></div>
+                                        <input name="Reply" />
+                                    </div>
+                                    <button>回复</button>
+                                </form>
+                                @*<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#@item.OrderId">回复</button>
+                                <div class="modal fade" id="@item.OrderId" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <form action="/Order/Reply">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                    <h4 class="modal-title" id="myModalLabel">回复评论</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div>
+                                                        <span>@Html.Action("GetCustomerName", "Admin", new { item.CustomerId })</span>
+                                                        <span>:@item.Evaluate</span>
+                                                    </div>
+                                                    <textarea name="Reply">@item.Reply</textarea>
+                                                    <input value="@item.OrderId" name="OrderId" type="hidden"/>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                                    <button class="btn btn-primary">回复</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>*@
+                            </td>
+                        </tr>
+                    }                      
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

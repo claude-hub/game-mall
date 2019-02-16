@@ -1,0 +1,50 @@
+﻿.addAdmin{
+    background:#fff;
+    /*text-align:center;*/
+    padding-top:30px;
+}
+.addAdmin .item{
+    margin-top:30px;
+    margin-bottom:30px;
+}
+.addAdmin .word{
+    width:30%;
+    overflow:hidden;
+    float:left;
+    line-height:28px;
+    text-align:right;
+}
+.addAdmin .start{
+    color:#ec5151;
+    margin-right:4px;
+}
+.addAdmin button{
+    border: 1px solid #ec5151;
+    background: #ec5151;
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    font-size: 14px;
+    padding: 0 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top:30px;
+    margin-bottom:50px;
+    margin-left:10px;    
+    margin-left:31%;
+}
+.addAdmin input{
+    width:300px;
+    border: 1px solid #dbdbdb;
+    border-radius: 2px;
+    height: 28px;
+    line-height: 28px;
+    margin-left:10px;
+}
+.addAdmin .select {
+    height: 28px;
+    line-height: 28px;
+    margin-left: 10px;
+    border: 1px solid #dbdbdb;
+    width: 300px;
+}

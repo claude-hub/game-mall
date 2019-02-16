@@ -1,0 +1,24 @@
+﻿@model List<GameMall_Front.ViewModels.Customer.ViewModelShoppingCars>
+@{ 
+    Layout = null;
+}
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            <input type="checkbox" name="choose" value="@item.ShoppingCarId" />
+        </td>
+        <td>@Html.Action("GoodsName", "FrontGoods", new { item.GoodsId })</td>
+            @Html.Action("VersionMes", "FrontGoods", new { item.VersionId })
+        <td>
+            <button class="reduce">-</button>
+            <input id="@item.ShoppingCarId" name="goodsNumber" readonly="readonly" value="@item.ShoppingCarGoodsNumber"/>
+            <button class="plus">+</button>
+        </td>
+        <td></td>
+        <td>
+            <button>删除</button>
+        </td>
+    </tr>
+}
+

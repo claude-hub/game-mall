@@ -1,0 +1,63 @@
+﻿@model GameMall_Front.ViewModels.Customer.ViewModelUsers
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section css{
+    @Styles.Render("~/Css/myMall.css")
+    @Styles.Render("~/Css/orders.css")
+    @Styles.Render("~/Css/address.css")
+}
+@{
+    if (TempData["TipModify"] != null)
+    {
+        <script>
+                alert("@TempData["TipModify"]");
+        </script>
+    }
+}
+<div class="container-block">
+    <div class="myMall">
+        <div class="position">我的位置>我的商城</div>
+        <h3>我的商城</h3>
+        <div class="myMall-box">
+            <div id="tabs">
+                <ul>
+                    <li>
+                        <div class="tit">
+                            <img style="width:100px;height:100px;" src="@Model.Head" />
+                        </div>
+                    </li>
+                    <li>
+                        <div class="tit">
+                            <img src="~/Images/User/user.png" />
+                            <span>个人资料</span>
+                        </div>
+                    </li>
+                    <li><a id="modify-head-name">修改昵称、头像</a></li>
+                    <li><a id="address-manage">地址管理</a></li>
+                    <li>
+                        <div class="tit">
+                            <img src="~/Images/User/order.png" />
+                            <span>我的订单</span>
+                        </div>
+                    </li>
+                    <li><a id="allOrder">全部订单</a></li>
+                    <li><a id="pending-payment">待付款</a></li>
+                    <li><a id="waiting-delivery">待发货</a></li>
+                    <li><a id="receiving-goods">待收货</a></li>
+                    <li><a id="pending-evaluation">待评价</a></li>
+                    <li>
+                        <div class="tit">
+                            <img src="~/Images/User/安全.png" />
+                            <span>安全管理</span>
+                        </div>
+                    </li>
+                    <li><a id="modify-password">修改密码</a></li>
+                </ul>
+                <div class="right-block" id="right">
+                    @Html.Action("ModifyNameOrHead", "FrontCustomer")
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

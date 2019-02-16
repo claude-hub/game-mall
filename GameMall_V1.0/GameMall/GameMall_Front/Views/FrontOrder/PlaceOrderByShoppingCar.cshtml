@@ -1,0 +1,88 @@
+﻿@model List<GameMall_Front.ViewModels.Order.ViewModelOrder>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section css{
+    @Styles.Render("~/Css/PlaceOrder.css")
+}
+<form id="myForm" action="/FrontOrder/PlaceOrderByShoppingCar" method="post">
+    <div class="content">
+        <div>
+            <div class="tit">
+                选择收货地址
+            </div>
+            <div class="address">
+                @Html.Action("ChooseDeliveryAddress", "FrontCustomer")
+                <a href="/FrontCustomer/MyMall">地址管理</a>
+            </div>
+            <div class="tit">
+                确认订单信息
+            </div>
+            <div class="order-mes">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>商品信息</th>
+                            <th>游戏版本</th>
+                            <th>单价</th>
+                            <th>数量</th>
+                            <th>小计</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <span>@item.GoodsName</span>
+                                </td>
+                                <td>@item.VersionName</td>
+                                <td>@item.Price</td>
+                                <td>@item.OrderGoodsNumber</td>
+                                <td>
+                                    <input style="border:0;text-align:center" readonly="readonly" name="subtotal" value="@(item.Price*item.OrderGoodsNumber)" />
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="leave-message">
+                <div>给卖家留言</div>
+                <input name="SellerMessage" />
+            </div>
+
+            <div class="place-order">
+                <div class="sure-address">
+                    <div>
+                        <span>实付款：</span>
+                        <input style="border:0;font-size:20px;display:inline-block" readonly="readonly"  id="actual_pay" />
+                    </div>
+                    <div id="sureAddress">
+                        @Html.Action("SureAddress", "FrontCustomer")
+                    </div>
+                </div>
+                @foreach (var item in Model)
+                {
+                    <input type="hidden" name="GoodsId" value="@item.GoodsId" />
+                    <input type="hidden" name="VersionId" value="@item.VersionId" />
+                    <input type="hidden" name="OrderGoodsNumber" value="@item.OrderGoodsNumber" />
+                }
+                <input type="hidden" name="DeliveryAddressId" id="deliveryAdderssId" />
+               <button>提交订单</button>
+            </div>
+        </div>
+    </div>
+</form>
+@*<script src="~/Js/jquery-1.9.1.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("button").click(function () {
+            //$("#q").text($("#myForm").serialize());
+            //var jsonStr = JSON.stringify($("#myForm").serialize());  //json字符串
+            //$("#q").text(JSON.parse(jsonStr));
+            $("#myForm").submit();
+            //$("#orderStr").val($("#myForm").serialize());
+        });
+    });
+</script>*@

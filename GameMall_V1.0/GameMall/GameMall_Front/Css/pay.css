@@ -1,0 +1,9 @@
+﻿.pay{
+    margin: auto;
+    width: 1210px;
+    text-align: center;
+    margin-top: 50px;
+}
+.pay form{
+    display:inline-block;
+}

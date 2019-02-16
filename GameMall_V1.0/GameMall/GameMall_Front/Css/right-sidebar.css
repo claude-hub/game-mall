@@ -1,0 +1,16 @@
+﻿.left{
+    width:40px;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 9;
+    height: 100%;
+    background: #444851;
+}
+.left .center{
+    padding:10px;
+    list-style:none;
+    text-align:center;
+    position: absolute;
+    top: 30%;
+}

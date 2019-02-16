@@ -1,0 +1,101 @@
+﻿.orders{
+    margin-top:40px;
+}
+.orders ul{
+    list-style:none;
+    overflow:hidden;
+    border-bottom: 1px solid #ddd;
+}
+.orders li{
+    margin:0 10px;
+    float:left;
+}
+.orders li a{
+    background-color:#fff;
+    color:black;
+    padding: 6px 24px;
+    display: inline-block;
+    cursor:pointer;
+    border-radius: 4px 4px 0 0;
+}
+.orders li .actived,.actived:hover{
+    background-color:#27a9e3 !important;
+    color:#fff;
+}
+.orders li a:hover{
+    background: #f7f7f7;
+}
+    /*margin-right: 2px;
+    line-height: 1.42857143;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;*/
+
+/*.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+    background-color:#27a9e3;
+    color:#fff;
+}*/
+.orders .search-block{
+    float:right;
+    margin:0;
+}
+.orders  input{
+    border:0;
+    padding:0;
+    height:26px;
+    vertical-align:middle;
+    outline:none;
+    padding-left: 10px;
+    /*width:180px;*/
+}
+.orders .search {
+    background: url('../Images/Shared/search.png') center no-repeat;
+    width:26px;
+    height:26px;
+    border: 1px solid #dbdbdb;
+    float:right;
+    margin-right:30px;
+}
+.orders .list{
+    margin-top:30px;
+}
+.orders .list .goodsImage{
+    width:80px;
+    height:80px;
+}
+
+.orders .list th{
+    text-align:center;
+    width:200px;
+    height: 38px;
+    line-height: 38px;
+    background: #f2f2f2;
+    font-weight: bold;
+    border-top: 2px solid #dbdbdb;
+    border-bottom: 1px solid #eaeaea;
+    color: #333;
+}
+.orders .list td{
+    background:#FFF;
+    text-align:center;
+    border: 1px solid #eaeaea;
+    padding:10px 0px;
+}
+.orders .list .choose-all{
+    text-align:left;
+    padding-left: 30px;
+}
+.orders .list .order_mes{
+    background-color: #F7F7F7;
+    text-align: left;
+    padding-left: 30px;
+    padding-top: 30px;
+}
+.orders .list .choose-item{
+    text-align:left;
+    padding-left: 30px;
+    /*background-color:#F7F7F7;
+    padding-top: 30px;*/
+}
+.orders .list .choose-item span{
+    margin-left:60px;
+}

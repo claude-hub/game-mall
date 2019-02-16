@@ -1,0 +1,76 @@
+﻿@model GameMall_Back.ViewModels.ViewModelUsers
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section css{
+    @Styles.Render("~/Css/addAdmin.css")
+}
+<section class="content-header">
+    <h1>
+        <a href="/Admin/AdminList"><img src="~/Images/Shared/return.png" /></a>
+        管理员列表
+        <small>添加管理员</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> 权限中心</a></li>
+        <li class="active">管理员列表</li>
+        <li class="active">添加管理员</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="tips">
+        <div class="tips-tit">
+            <img src="~/Images/Shared/灯.png" />
+            <span>操作提示</span>
+        </div>
+        <ul>
+            <li>可从管理平台手动添加一名新管理员，并填写相关信息。</li>
+            <li>标识“*”的选项为必填项，其余为选填项。</li>
+            <li>新增管理员后可从管理员列表中找到该条数据，并再次进行编辑操作。</li>
+        </ul>
+    </div>
+    <form method="post" action="/Admin/AddAdmin">
+        <div class="addAdmin">
+            <div class="item">
+                <div class="word">
+                    <span class="start">*</span>
+                    <span>昵称：</span>
+                </div>
+                <input name="UserName"/>
+            </div>
+            <div class="item">
+                <div class="word">
+                    <span class="start">*</span>
+                    <span>手机号：</span>
+                </div>
+                <input name="PhoneNumber"/>
+            </div>
+            <div class="item">
+                <div class="word">
+                    <span class="start">*</span>
+                    <span>密码：</span>
+                </div>
+                <input name="Password" type="password"/>
+            </div>
+            <div class="item">
+                <div class="word">
+                    <span class="start">*</span>
+                    <span>确认密码：</span>
+                </div>
+                <input type="password"/>
+            </div>
+            <div class="item">
+                <div class="word">
+                    <span>分配角色：</span>
+                </div>
+                <select class="select" name="RoleId">
+                    <option>请选择...</option>
+                    @Html.Action("SelectRole","Admin")
+                </select>
+            </div>
+            <button>确认</button>
+        </div>
+    </form>
+    
+</section>

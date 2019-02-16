@@ -1,0 +1,18 @@
+﻿@{ 
+    Layout = null;
+}
+<script src="~/Js/jquery-1.9.1.js"></script>
+<script src="~/Js/val.js"></script>
+<div class="buy btns">
+    <form action="/FrontOrder/PlaceOrder">
+        <input id="goodsId" name="goodsId" value="@Model" />
+        <input id="GoodsNumber" name="orderGoodsNumber" value="1" />
+        <input id="versionId" name="VersionId"/>
+        <button class="buy-now">直接购买</button>
+    </form>
+    <input id="customerId" value="@Session["CustomerId"]" type="hidden" />
+    <button id="AddToShoppingCar" class="addCart btnCart" onclick="AddToShoppingCar()">加入购物车</button>
+</div>
+<div id="flyItem" class="fly_item">
+    <img src="~/Images/item-pic.jpg" width="50" height="50" />
+</div>

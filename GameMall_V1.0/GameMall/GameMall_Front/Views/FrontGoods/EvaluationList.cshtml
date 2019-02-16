@@ -1,0 +1,18 @@
+﻿@model List<GameMall_Front.ViewModels.Goods.ViewModelEvaluation>
+@{ 
+    Layout = null;
+}
+
+@foreach(var item in Model)
+{
+    <div class="evaluate">
+        <span class="tip">评论用户:</span>
+        <span>@item.CustomerId</span>
+        <span class="tip">评论商品:</span>
+        <span>@item.OrderId</span>
+        <span class="tip">评论:</span>
+        <span>@item.Evaluate</span>
+        <span class="tip">回复:</span>
+        <span>@item.Reply</span>
+    </div>
+}

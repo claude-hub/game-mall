@@ -1,0 +1,71 @@
+﻿@model GameMall_Front.ViewModels.Order.ViewModelOrder
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section css{
+    @Styles.Render("~/Css/orderDetail.css")
+}
+<div class="order-mes">
+    <div class="head">
+        <img src="~/Images/Order/ui-step.png" />
+        <h3>基本信息</h3>
+    </div>
+    <ul>
+        <li><span>订单编号：</span>@Model.OrderId</li>
+        <li><span>购物人：</span>@Model.CustomerId</li>
+        <li class="address"><span>下单时间：</span>@Model.OrderTime</li>
+    </ul>
+    <ul>
+        <li></li>
+        <li></li>
+        <li class="address"><span>订单状态：</span>@Model.OrderStatus</li>
+    </ul>
+</div>
+<div class="order-mes">
+    <div class="head">
+        <img src="~/Images/Order/ui-step.png" />
+        <h3>收货人信息</h3>
+        <img src="~/Images/Order/modify.png" />
+    </div>
+    <ul>
+        <li><span>收货人：</span>@Model.DeliveryName</li>
+        <li><span>电话：</span>@Model.TelNum</li>
+        <li class="address"><span>收货地址：</span>@Model.Province @Model.Area @Model.Street @Model.DetailAddress</li>
+    </ul>
+    <ul>
+        <li></li>
+        <li></li>
+        <li class="address"><span>买家留言：</span>@Model.SellerMessage</li>
+    </ul>
+</div>
+<div class="order-mes">
+    <div class="head">
+        <img src="~/Images/Order/ui-step.png" />
+        <h3>商品信息</h3>
+        <img src="~/Images/Order/modify.png" />
+    </div>
+    <div class="goods-mes">
+        <table>
+            <thead>
+                <tr>
+                    <th class="mes">游戏名称</th>
+                    <th class="mes">版本名称</th>
+                    @*<th>仓库名称</th>*@
+                    <th>单价</th>
+                    <th>数量</th>
+                    <th>合计</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="mes">仙剑6</td>
+                    <td class="mes">普通版</td>
+                    @*<td>重庆仓库</td>*@
+                    <td>￥56</td>
+                    <td>1</td>
+                    <td>56</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

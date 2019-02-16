@@ -1,0 +1,42 @@
+﻿.jbt_page{
+    text-align:right;
+    margin-top:10px;
+    color: #7c7c7c;
+}
+/*.jbt_page button{
+    background-color:transparent;
+    border:0;
+}*/
+.jbt_page .inputbox_page_number{
+    display:inline-block;
+    width:50px;
+    height:20px;
+    border: 0;
+    padding-left: 2px;
+    outline: none;
+}
+.jbt_page .goto{
+    border: 1px solid #dbdbdb;
+    border-radius:2px;
+}
+.jbt_page input{
+    border: 0;
+    width: 18px;
+    vertical-align: middle;
+}
+.jbt_page .to_first {
+    background: url(../Images/Shared/first_page.png) no-repeat transparent;
+    background-position: 4px 5px;
+}
+.jbt_page .to_pre {
+    background: url(../Images/Shared/pre_page.png) no-repeat transparent;
+    background-position: 4px 5px;
+}
+.jbt_page .to_next {
+    background: url(../Images/Shared/next_page.png) no-repeat transparent;
+    background-position: 4px 5px;
+}
+.jbt_page .to_last {
+    background: url(../Images/Shared/last_page.png) no-repeat transparent;
+    background-position: 4px 5px;
+}

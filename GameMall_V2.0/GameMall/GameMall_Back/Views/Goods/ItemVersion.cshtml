@@ -1,0 +1,50 @@
+﻿@model List<GameMall_Back.ViewModels.Goods.ViewModelVersions>
+@{ 
+    Layout = null;
+}
+<td colspan="4">
+    @foreach (var item in Model)
+    {
+        <div class="version_mes">
+            <span>@item.VersionName</span>
+            <span>@item.Price</span>
+            <span>@item.Stock</span>
+            <span id="change_sell">
+                @if (item.Sell == 0)
+                {
+                    <button class="NoSell" id="@item.VersionId" onclick="ChangeSell(@item.VersionId)">已下架</button>
+                }
+                else
+                {
+                    <button id="@item.VersionId" onclick="ChangeSell(@item.VersionId)">已上架</button>
+                }
+            </span>
+        </div>
+    }
+</td>
+@*<td>
+    @foreach (var item in Model)
+    {
+        <div>@item.VersionName</div>
+    }
+</td>
+<td>
+    @foreach (var item in Model)
+    {
+        <div>@item.Price</div>
+    }
+</td>
+<td>
+    @foreach (var item in Model)
+    {
+        <div>@item.Stock</div>
+    }
+</td>
+<td>
+    @foreach (var item in Model)
+    {
+        <div>@item.VersionName</div>
+    }
+</td>*@
+
+

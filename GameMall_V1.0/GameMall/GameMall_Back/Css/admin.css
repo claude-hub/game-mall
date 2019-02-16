@@ -1,0 +1,108 @@
+﻿.admin-list{
+    margin-top: 20px;
+    line-height:22px;
+    font-size:12px;
+}
+.admin-list .head{
+    color: #707070;
+    white-space: nowrap;
+    display: block;
+    margin-bottom: 10px;
+    overflow:hidden;
+}
+.admin-list .head .button{
+    cursor:pointer;
+    border:1px solid #ec5051;
+    border-radius:4px;
+    background:#fff;
+    color:#ec5051;
+    margin-right:10px;
+    vertical-align:middle;
+    float:left;
+    padding: 2px 10px;
+}
+.admin-list .head .search-block{
+    float:right;
+}
+.admin-list .head  input{
+    border:0;
+    padding:0;
+    height:26px;
+    vertical-align:middle;
+    padding-left: 10px;
+    outline:none;
+}
+.admin-list .head .search {
+    background: url('../Images/Shared/search.png') center no-repeat;
+    width:26px;
+    height:26px;
+    border: 1px solid #dbdbdb;
+    margin-right:30px;
+    vertical-align: middle;
+     margin-left: -4px;
+
+}
+.admin-list .list table{
+    min-width: 1090px;
+}
+.admin-list .list .choosebox{
+    text-align:left;
+    padding-left:20px;
+    width:40px;
+}
+.admin-list .list th{
+    /*padding-left:20px;*/
+    text-align:center;
+    width:160px;
+    height: 38px;
+    line-height: 38px;
+    background: #f2f2f2;
+    font-weight: bold;
+    border-top: 2px solid #dbdbdb;
+    border-bottom: 1px solid #eaeaea;
+    color: #333;
+}
+.admin-list .list tbody{
+    background:#FFF;
+}
+.admin-list .list .operation{
+    width:289px;
+    text-align:center;
+}
+.admin-list .list .operation button{
+    margin-top:6px;
+    background:#fff;
+    border:1px solid #eaeaea;
+    border-radius:1px;
+}
+.admin-list .list .operation button:hover {
+    border:1px solid  #31b4e1;
+}
+.admin-list .list td{
+    padding:10px 0;
+    text-align:center;
+    width:160px;
+    border-bottom: 1px solid #eaeaea;
+}
+.version_mes{
+    border:1px solid #eaeaea;
+    margin:10px 0px;
+    padding:4px 0px;
+    border-radius:1px;
+}
+.version_mes span{
+    display: inline-block;
+    width: 118px;
+}
+.version_mes span button{
+    background:#fff;
+    border:1px solid #eaeaea;
+    border-radius:1px;
+}
+.version_mes span button:hover {
+   border:1px solid  #31b4e1;
+}
+.version_mes .NoSell{
+    background:#8e8e8e;
+    color:#fff;
+}
