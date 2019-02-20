@@ -1,0 +1,25 @@
+﻿@{
+    Layout = null;
+}
+
+@model List<GameMall_Front.ViewModels.Goods.ViewModelGoods>
+<div>
+    <div class="container">
+        <div class="demo">
+            <div class="title_more">
+                <img src="~/Images/HomeImages/Label.png" />
+                @*<div class="title">热门游戏</div>
+                <a href="/FrontGoods/AllGoods" class="more">更多游戏+</a>*@
+            </div>
+            <div class="plist">
+                <ul class="clearfix">
+                    @foreach (var item in Model)
+                    {
+                        @Html.Partial("ItemGoods", item)
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

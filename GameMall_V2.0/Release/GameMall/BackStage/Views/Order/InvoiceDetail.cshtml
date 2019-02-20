@@ -1,0 +1,33 @@
+﻿@model GameMall_Back.ViewModels.Order.ViewModelInvoice
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section css{
+    @Styles.Render("~/Css/orderDetail.css")
+}
+<section class="content-header">
+    <h1>
+        <a href="/Order/InvoiceList"><img src="~/Images/Shared/return.png" /></a>
+        发货单 - 发货单信息
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>商品中心</a></li>
+        <li class="active">发货单</li>
+        <li class="active">发货单信息</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="tips">
+        <div class="tips-tit">
+            <img src="~/Images/Shared/灯.png" />
+            <span>操作提示</span>
+        </div>
+        <ul>
+            <li>本页面展示订单的相关信息，管理员可修改订单。</li>
+            <li>操作步骤：先确认订单，再生成发货单，仓库根据发货单发货。</li>
+            <li>可取消订单</li>
+        </ul>
+    </div>
+    @Html.Action("OrderAndInvoice", "Order",new { Model.OrderId})
+    @Html.Action("CheckIfSended", "Order", new { Model.OrderId })
+</section>

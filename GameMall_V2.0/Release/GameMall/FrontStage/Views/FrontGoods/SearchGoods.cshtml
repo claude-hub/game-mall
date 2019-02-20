@@ -1,0 +1,83 @@
+﻿@model List<GameMall_Front.ViewModels.Goods.ViewModelGoods>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="center-block">
+    <div class="all-goods">
+        <div class="position-block">
+            <div class="position">
+                我的位置>所有游戏>所有分类
+            </div>
+        </div>
+        
+        <div class="type-navigation">
+            <div class="navigation-first">
+                <div class="type">类别：</div>
+                <ul>
+                    <li>
+                        <button>不限</button>
+                    </li>
+                    <li>
+                        <button>单机游戏</button>
+                    </li>
+                    <li>
+                        <button>网络游戏</button>
+                    </li>
+                    <li>
+                        <button>游戏周边</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="navigation-second">
+                <div class="type">类型：</div>
+                <ul>
+                    <li>
+                        <button>不限</button>
+                    </li>
+                    <li>
+                        <button>动作</button>
+                    </li>
+                    <li>
+                        <button>益智</button>
+                    </li>
+                    <li>
+                        <button>射击</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="navigation-third">
+                <div class="type">价格：</div>
+                <ul>
+                    <li>
+                        <button>不限</button>
+                    </li>
+                    <li>
+                        <button>0~100</button>
+                    </li>
+                    <li>
+                        <button>100~200</button>
+                    </li>
+                    <li>
+                        <button>200~500</button>
+                    </li>
+                    <li>
+                        <button>500~1000</button>
+                    </li>
+                    <li>
+                        <button>1000+</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="goods-list" id="goods_list">
+            <div class="plist">
+                <ul class="clearfix">
+                    @foreach (var item in Model)
+                    {
+                        @Html.Partial("ItemGoods", item);
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

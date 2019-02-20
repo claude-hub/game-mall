@@ -1,0 +1,104 @@
+﻿.container-block{
+    width:100%;
+}
+.myMall{
+    width:1210px;
+    margin:auto;
+    background-color:#fff;
+}
+.myMall .position {
+    margin-top:10px;
+    line-height: 30px;
+}
+.myMall h3{
+    font-size: 16px;
+    margin:20px 0px 30px 105px;
+}
+.myMall .myMall-box{
+    width:1000px;
+    margin:auto;
+    /*height:500px;*/
+    background-color:#fff;
+    border:1px #cccccc solid;
+    line-height:36px;
+}
+
+.myMall-box #tabs{
+    overflow:hidden;
+}
+.myMall-box #tabs ul{
+    float: left;
+    width: 200px;
+    border-right: 1px #cccccc solid;
+    height: 700px;
+}
+.myMall-box #tabs ul li{
+    clear: left;
+    width: 100%;
+    margin: 0 -1px .2em 0;    
+}
+.myMall-box #tabs ul li a{
+    display:block;
+    width:160px;
+    padding-left:40px;
+    cursor:pointer;
+}
+.myMall-box #tabs ul li .visited{
+    color:white;
+	background: #27a9e3;
+}
+.myMall-box #tabs ul li a:hover{
+    color:white;
+	background: #27a9e3;
+}
+.myMall-box #tabs .tit{
+    margin-left: 38px;
+    margin-top:10px;
+    font-size:14px;
+    font-weight:600;
+}
+.myMall-box #tabs .tit img,span{
+    vertical-align:middle;
+}
+.right-block{
+    float: left;
+    padding: 20px;
+}
+.right-block h2{
+    margin-bottom: 30px;
+    font-size:14px;
+}
+.right-block .item{
+    overflow:hidden;
+    margin-bottom:10px;
+}
+.right-block .item img{
+    margin-top:14px;
+}
+.right-block .word{
+    width: 100px;
+    overflow: hidden;
+    float: left;
+    text-align: right;
+}
+.right-block .item .word .star{
+    color:#ec5151;
+    margin-right:4px;
+}
+.right-block label{
+    vertical-align:middle;
+}
+.right-block button{
+    border: 1px solid #27a9e3;
+    background: #27a9e3;
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    font-size: 14px;
+    padding: 0 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: 100px;
+}
+

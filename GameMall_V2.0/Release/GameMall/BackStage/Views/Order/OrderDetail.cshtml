@@ -1,0 +1,44 @@
+﻿@model GameMall_Back.ViewModels.Order.ViewModelOrder
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section css{
+    @Styles.Render("~/Css/orderDetail.css")
+}
+<section class="content-header">
+    <h1>
+        <a href="/Order/OrderList"><img src="~/Images/Shared/return.png" /></a>
+        订单 - 订单信息
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> 订单中心</a></li>
+        <li class="active">订单</li>
+        <li class="active">订单信息</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="tips">
+        <div class="tips-tit">
+            <img src="~/Images/Shared/灯.png" />
+            <span>操作提示</span>
+        </div>
+        <ul>
+            <li>本页面展示订单的相关信息，管理员可修改订单。</li>
+            <li>操作步骤：先确认订单，再生成发货单，仓库根据发货单发货。</li>
+            <li>可取消订单</li>
+        </ul>
+    </div>
+    @Html.Partial("OrderAndInvoice", Model)
+    @if (Model.OrderStatus < 2)
+    {
+        <div class="order-mes">
+            <div class="button">
+                <form action="/Order/OrderDetail" method="post">
+                    <input name="orderId" value="@Model.OrderId" />
+                    <input name="adminId" value="@Session["AdminId"]" />
+                    <button>确认订单，并生成发货单</button>
+                </form>
+            </div>
+        </div>
+    }
+</section>

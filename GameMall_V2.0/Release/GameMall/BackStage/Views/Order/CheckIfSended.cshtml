@@ -1,0 +1,12 @@
+﻿@{ 
+    Layout = null;
+}
+<div class="order-mes">
+    <div class="button">
+        <form action="/Order/InvoiceDetail" method="post">
+            <input name="orderId" value="@Model" />
+            <input name="adminId" value="@Session["AdminId"]" />
+            <button>发货</button>
+        </form>
+    </div>
+</div>

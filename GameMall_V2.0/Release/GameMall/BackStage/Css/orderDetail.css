@@ -1,0 +1,95 @@
+﻿.order-mes{
+    background: #fff;
+    padding: 15px 20px;
+}
+.order-mes .head{
+    border-bottom: 2px solid #dbdbdb;
+}
+.order-mes .head h3{
+    font-size:16px;
+    display:inline-block;
+    vertical-align:middle;
+    /*margin-top:10px;*/
+    margin:12px 4px 10px 4px;
+}
+.order-mes .head img{
+    vertical-align:middle;
+    width:14px;
+    height:14px;
+}
+.order-mes ul{
+    padding:0;
+    list-style:none;
+    overflow:hidden;
+    margin:0;
+}
+.order-mes ul li{
+    width:25%;
+    float:left;
+    height: 35px;
+    line-height: 35px;
+    padding-left: 22px;
+    border-bottom: 1px solid #eee;
+}
+.order-mes ul li span{
+    color:#989898;
+}
+.order-mes ul .address{
+    width:44%;
+}
+
+.goods-mes{
+
+}
+.goods-mes  .mes{
+    padding-left:22px;
+    width:20%;
+}
+.goods-mes  thead th{
+    width:158px;
+    height: 37px;
+    background: #eee;
+    font-weight:normal;
+}
+.goods-mes tbody tr{
+    border: 1px solid #eee;
+    border-top:0;
+    line-height:60px;
+}
+.operation{
+    margin-top:40px;
+    padding:0 20px;
+}
+.operation span{
+    vertical-align:top;
+}
+.operation textarea{
+    display:inline-block;
+    border: 1px solid #dbdbdb;
+    border-radius: 2px;
+    height: 100px;
+    padding: 5px 10px;
+    width: 300px;
+    resize: none;
+    line-height: 20px;
+    margin-right: 10px;
+}
+ .order-mes .button{
+    text-align:center;
+}
+ .order-mes .button button{
+    margin:20px 0px;
+    background-color: #ec5151;
+    color: #fff;
+    border: 0;
+    width: 200px;
+    line-height: 30px;
+    border-radius: 2px;
+    margin-right: 28px;
+}
+.order-mes .button .cancel{
+    width:132px;
+}
+.order-mes .button input{
+    display:none;
+}

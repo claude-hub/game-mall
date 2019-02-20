@@ -1,0 +1,70 @@
+﻿@model GameMall_Front.ViewModels.Order.ViewModelOrder
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section css{
+    @Styles.Render("~/Css/PlaceOrder.css")
+}
+<form method="post" action="/FrontOrder/PlaceOrder">
+    <div class="content">
+        <div>
+            <div class="tit">
+                选择收货地址
+            </div>
+            <div class="address">
+                @Html.Action("ChooseDeliveryAddress", "FrontCustomer")
+                <a href="/FrontCustomer/MyMall">地址管理</a>
+            </div>
+            <div class="tit">
+                确认订单信息
+            </div>
+            <div class="order-mes">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>游戏名</th>
+                            <th>版本名</th>
+                            <th>单价</th>
+                            <th>数量</th>
+                            <th>小计</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding:14px 0px;">@Model.GoodsName</td>
+                            <td>@Model.VersionName</td>
+                            <td>@Model.Price</td>
+                            <th>@Model.OrderGoodsNumber</th>
+                            <th>@(Model.OrderGoodsNumber*Model.Price)</th>
+                            @*<td>
+                                <img src="~/Images/Goods/1090.jpg" />
+                                <span>仙剑</span>
+                            </td>
+                            <td>56</td>
+                            <td>1</td>
+                            <td>56</td>*@
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="leave-message">
+                <div>给卖家留言</div>
+                <input name="SellerMessage" />
+            </div>
+
+            <div class="place-order">
+                <div class="sure-address">
+                    <div>实付款：@Model.Price</div>
+                    <div id="sureAddress">
+                        @Html.Action("SureAddress", "FrontCustomer")
+                    </div>
+                </div>
+                <input name="GoodsId" value="@Model.GoodsId" />
+                <input id="GoodsNumber" name="OrderGoodsNumber" value="@Model.OrderGoodsNumber" />
+                <input name="VersionId" value="@Model.VersionId" />
+                <input name="DeliveryAddressId" id="deliveryAdderssId"/>
+                <button>提交订单</button>
+            </div>
+        </div>
+    </div>
+</form>

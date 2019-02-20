@@ -1,0 +1,52 @@
+﻿@model GameMall_Front.ViewModels.Customer.ViewModelUsers
+@{ 
+    Layout = null;
+}
+
+@section scripts{
+    @Scripts.Render("~/Js/uploud-image.js")
+}
+@*<script src="~/Js/jquery-1.9.1.js"></script>
+<script src="~/Js/uploud-image.js"></script>*@
+<form enctype="multipart/form-data" action="/FrontCustomer/ModifyNameOrHead" method="post">
+    <h2>修改昵称、头像</h2>
+    <p>亲爱的 @Model.UserName，填写真实的资料，有助于好友找到你哦。</p>
+    <input name="UserId" value="@Model.UserId" type="hidden"/>
+    <div class="item">
+        <div class="word">
+            <span>当前头像：</span>
+        </div>
+        <div>
+            <img style="width:100px;height:100px;" onclick="$('#head').click();" src="@Model.Head" />
+            <input name="Head" id="head" type="file" style="display:none" />
+        </div>
+    </div>
+    <div class="item">
+        <div class="word">
+            <span class="star">*</span>
+            <span>用户名：</span>
+        </div>
+        <input name="UserName" value="@Model.UserName" />
+    </div>
+    <div class="item">
+        <div class="word">
+            <span>真实姓名：</span>
+        </div>
+        <input name="RealName" value="@Model.RealName" />
+    </div>
+    <div class="item">
+        <div class="word">
+            <span class="star">*</span>
+            <span>电话号码：</span>
+        </div>
+        <input name="PhoneNumber" value="@Model.PhoneNumber" />
+    </div>
+    @*<div class="item">
+            <div class="word">
+                <span>性别：</span>
+            </div>
+            <label><input name="" type="radio" value="" />男</label>
+            <label><input name="Fruit" type="radio" value="" />女</label>
+        </div>*@
+    <button>提交</button>
+</form>

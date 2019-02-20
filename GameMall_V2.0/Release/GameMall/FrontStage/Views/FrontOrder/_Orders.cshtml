@@ -1,0 +1,110 @@
+﻿@model List<GameMall_Front.ViewModels.Order.ViewModelOrder>
+@{
+    Layout = null;
+}
+<div class="orders">
+    <div class="list">
+        <table>
+            <thead>
+                <tr>
+                    <th class="choose-all">
+                        <input type="checkbox" />全选
+                    </th>
+                    <th>商品名称</th>
+                    <th>单价(元)</th>
+                    <th>数量</th>
+                    <th>版本号</th>
+                    <th>收货人</th>
+                    <th>总金额</th>
+                    <th>订单状态</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                    <tr>
+                        <td class="choose-item" colspan="9">
+                            <div>
+                                <input type="checkbox" />
+                                <span>订单号：@item.OrderId</span>
+                                <span>下单时间：@item.OrderTime</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                             @* @Html.Action("OrderVersionImage", "FrontOrder", item.VersionId)*@
+                        </td>
+                        <td>@item.GoodsName</td>
+                        <td>@item.Price</td>
+                        <td>@item.OrderGoodsNumber</td>
+                        <td>@item.VersionName</td>
+                        <td>@item.DeliveryName</td>
+                        <td>@item.Price</td>
+                        @if (item.OrderStatus == 1)
+                        {
+                            <td>
+                                <div>已付款</div>
+                                <div>未确认</div>
+                                <div>未发货</div>
+                                <div>未签收</div>
+                            </td>
+                        }
+                        @if (item.OrderStatus == 2)
+                        {
+                            <td>
+                                <div>已付款</div>
+                                <div>已确认</div>
+                                <div>未发货</div>
+                                <div>未签收</div>
+                            </td>
+                        }
+                        @if (item.OrderStatus == 3)
+                        {
+                            <td>
+                                <div>已付款</div>
+                                <div>已确认</div>
+                                <div>已发货</div>
+                                <div>未签收</div>
+                            </td>
+                        }
+                        @if (item.OrderStatus == 4 || item.OrderStatus == 5)
+                        {
+                            <td>
+                                <div>已付款</div>
+                                <div>已确认</div>
+                                <div>已发货</div>
+                                <div>已签收</div>
+                            </td>
+                        }
+                        <td>
+                            <div>
+                                <a href="/FrontOrder/OrderDetail?orderId=@item.OrderId" class="order_a">查看订单</a>
+                            </div>
+                            @if (item.OrderStatus == 3)
+                            {
+                                <div class="jbt">
+                                    <form action="/FrontOrder/Confirm">
+                                        <input name="orderId" value="@item.OrderId" type="hidden" />
+                                        <button class="order_jbt">确认收货</button>
+                                    </form>
+                                </div>
+                            }
+                            @if (item.OrderStatus == 4)
+                            {
+                                <div class="jbt">
+                                    <form action="/FrontOrder/Evaluate">
+                                        <input name="orderId" value="@item.OrderId" type="hidden" />
+                                        <button class="order_jbt">评价</button>
+                                    </form>
+                                </div>
+                            }
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
